@@ -1,10 +1,13 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* TODO: Primeiro teste
 ## 1.0.0
 
-* TODO: Inicial teste.
+* TODO: Segundo Teste
 
-## 1.1.0
+## 1.1.1
 
-* TODO: Inicial teste.
+* TODO: Terceiro teste
+## 1.1.2
+
+* TODO: Quarto Teste
