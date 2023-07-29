@@ -1,11 +1,11 @@
 // ignore_for_file: sized_box_for_whitespace
 
-import 'package:flutter_responsive/utils/filtros/bases/filtro_base.dart';
-import 'package:flutter_responsive/utils/filtros/bases/filtro_textform_controller.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input_inline.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_textform_controller.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input_inline.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive/constantes.dart';
+import 'package:flutter_responsive_template/constantes.dart';
 
 class FiltroTextForm extends StatefulWidget {
   final String titulo;

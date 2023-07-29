@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:flutter_responsive/constantes.dart';
-import 'package:flutter_responsive/utils/criptografia.dart';
-import 'package:flutter_responsive/utils/filtros/bases/filtro_base.dart';
-import 'package:flutter_responsive/utils/module_base/app_controller.dart';
-import 'package:flutter_responsive/utils/repository/chaves.dart';
+import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/criptografia.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart';
+import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
+import 'package:flutter_responsive_template/utils/repository/chaves.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:dio/dio.dart';
 

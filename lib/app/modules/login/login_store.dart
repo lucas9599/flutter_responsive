@@ -1,15 +1,15 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:flutter_responsive/model/usuario.dart';
+import 'package:flutter_responsive_template/model/usuario.dart';
 
-import 'package:flutter_responsive/constantes.dart';
-import 'package:flutter_responsive/app/modules/login/login_repository.dart';
-import 'package:flutter_responsive/utils/observables/conexao.dart';
-import 'package:flutter_responsive/utils/repository/error.dart';
-import 'package:flutter_responsive/utils/rotas/mensagens.dart';
-import 'package:flutter_responsive/utils/telas/extras/config.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input_checkbox.dart';
+import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/app/modules/login/login_repository.dart';
+import 'package:flutter_responsive_template/utils/observables/conexao.dart';
+import 'package:flutter_responsive_template/utils/repository/error.dart';
+import 'package:flutter_responsive_template/utils/rotas/mensagens.dart';
+import 'package:flutter_responsive_template/utils/telas/extras/config.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input_checkbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';

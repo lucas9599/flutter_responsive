@@ -1,9 +1,9 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
-import 'package:flutter_responsive/app/modules/login/login_store.dart';
-import 'package:flutter_responsive/constantes.dart';
-import 'package:flutter_responsive/utils/observables/carregando_widget.dart';
-import 'package:flutter_responsive/utils/observables/conexao.dart';
-import 'package:flutter_responsive/utils/telas/menus/windows_buttons.dart';
+import 'package:flutter_responsive_template/app/modules/login/login_store.dart';
+import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/observables/carregando_widget.dart';
+import 'package:flutter_responsive_template/utils/observables/conexao.dart';
+import 'package:flutter_responsive_template/utils/telas/menus/windows_buttons.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';

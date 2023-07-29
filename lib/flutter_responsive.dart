@@ -1,7 +1,7 @@
-library flutter_responsive;
+library flutter_responsive_template;
 
-import 'package:flutter_responsive/constantes.dart';
-import 'package:flutter_responsive/utils/telas/menus/menu_espandido.dart';
+import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/telas/menus/menu_espandido.dart';
 
 class FlutterResposive {
   FlutterResposive(

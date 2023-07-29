@@ -1,8 +1,8 @@
-import 'package:flutter_responsive/utils/rotas/mensagens.dart';
-import 'package:flutter_responsive/utils/telas/extras/validador.dart';
-import 'package:flutter_responsive/utils/telas/inputs/i_inputs.dart';
-import 'package:flutter_responsive/utils/telas/inputs/latex_repository.dart';
-import 'package:flutter_responsive/utils/telas/inputs/view_latex.dart';
+import 'package:flutter_responsive_template/utils/rotas/mensagens.dart';
+import 'package:flutter_responsive_template/utils/telas/extras/validador.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/i_inputs.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/latex_repository.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/view_latex.dart';
 import 'package:flutter/material.dart';
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/services.dart';

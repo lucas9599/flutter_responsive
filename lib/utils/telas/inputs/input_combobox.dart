@@ -1,8 +1,8 @@
-import 'package:flutter_responsive/utils/filtros/bases/filtro_base.dart';
-import 'package:flutter_responsive/utils/repository/chaves.dart';
-import 'package:flutter_responsive/utils/repository/repository_base.dart';
-import 'package:flutter_responsive/utils/telas/inputs/i_inputs.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input_combobox_controller.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart';
+import 'package:flutter_responsive_template/utils/repository/chaves.dart';
+import 'package:flutter_responsive_template/utils/repository/repository_base.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/i_inputs.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input_combobox_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';

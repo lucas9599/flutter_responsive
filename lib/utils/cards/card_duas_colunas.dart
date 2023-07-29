@@ -1,6 +1,6 @@
-import 'package:flutter_responsive/constantes.dart';
-import 'package:flutter_responsive/utils/cards/card_label_valor.dart';
-import 'package:flutter_responsive/utils/cards/card_opcoes.dart';
+import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/cards/card_label_valor.dart';
+import 'package:flutter_responsive_template/utils/cards/card_opcoes.dart';
 import 'package:flutter/material.dart';
 
 class CardDuasColunas extends StatefulWidget {

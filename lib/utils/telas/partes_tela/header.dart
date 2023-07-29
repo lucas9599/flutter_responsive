@@ -1,7 +1,7 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
-import 'package:flutter_responsive/constantes.dart';
-import 'package:flutter_responsive/utils/module_base/app_controller.dart';
-import 'package:flutter_responsive/utils/telas/menus/windows_buttons.dart';
+import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
+import 'package:flutter_responsive_template/utils/telas/menus/windows_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

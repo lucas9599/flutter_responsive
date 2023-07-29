@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive/utils/filtros/bases/filtro_base.dart';
-import 'package:flutter_responsive/utils/filtros/bases/filtro_tela_base.dart';
-import 'package:flutter_responsive/utils/repository/chaves.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_tela_base.dart';
+import 'package:flutter_responsive_template/utils/repository/chaves.dart';
 
 class FiltroUsuario extends FiltroTelaBase {
   FiltroUsuario({

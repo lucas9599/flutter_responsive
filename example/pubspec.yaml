@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   printing: ^5.10.1  
-  flutter_responsive:
+  flutter_responsive_template:
     path: ../  
 
 dev_dependencies:

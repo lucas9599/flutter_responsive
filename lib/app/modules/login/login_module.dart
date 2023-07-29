@@ -1,5 +1,5 @@
-import 'package:flutter_responsive/app/modules/login/login_page.dart';
-import 'package:flutter_responsive/app/modules/login/login_store.dart';
+import 'package:flutter_responsive_template/app/modules/login/login_page.dart';
+import 'package:flutter_responsive_template/app/modules/login/login_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class LoginModule extends Module {

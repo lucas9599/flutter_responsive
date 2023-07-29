@@ -1,4 +1,4 @@
-import 'package:flutter_responsive/utils/telas/datatable/data.dart';
+import 'package:flutter_responsive_template/utils/telas/datatable/data.dart';
 import 'package:flutter/material.dart';
 
 class DataSource extends DataTableSource {

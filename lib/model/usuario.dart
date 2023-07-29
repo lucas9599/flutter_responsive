@@ -4,7 +4,7 @@ import 'dart:typed_data';
 
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive/utils/telas/datatable/data.dart';
+import 'package:flutter_responsive_template/utils/telas/datatable/data.dart';
 
 class Usuario extends Dados {
   String? usuario;

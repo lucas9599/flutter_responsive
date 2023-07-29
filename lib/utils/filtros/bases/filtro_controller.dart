@@ -1,10 +1,10 @@
-import 'package:flutter_responsive/utils/filtros/bases/filtro_base.dart';
-import 'package:flutter_responsive/utils/observables/conexao.dart';
-import 'package:flutter_responsive/utils/repository/chaves.dart';
-import 'package:flutter_responsive/utils/repository/repository_base.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input_checkbox.dart';
-import 'package:flutter_responsive/utils/telas/store/store_base.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart';
+import 'package:flutter_responsive_template/utils/observables/conexao.dart';
+import 'package:flutter_responsive_template/utils/repository/chaves.dart';
+import 'package:flutter_responsive_template/utils/repository/repository_base.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input_checkbox.dart';
+import 'package:flutter_responsive_template/utils/telas/store/store_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';

@@ -1,5 +1,5 @@
-import 'package:flutter_responsive/constantes.dart';
-import 'package:flutter_responsive/utils/telas/inputs/i_inputs.dart';
+import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/i_inputs.dart';
 import 'package:flutter/material.dart';
 
 class InputInline extends StatefulWidget implements IInput {

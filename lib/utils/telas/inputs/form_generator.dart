@@ -1,10 +1,10 @@
 import 'package:enhance_stepper/enhance_stepper.dart';
-import 'package:flutter_responsive/constantes.dart';
-import 'package:flutter_responsive/utils/observables/carregando_widget.dart';
-import 'package:flutter_responsive/utils/observables/conexao.dart';
-import 'package:flutter_responsive/utils/telas/inputs/i_inputs.dart';
-import 'package:flutter_responsive/utils/telas/partes_tela/posicioned_mensagens.dart';
-import 'package:flutter_responsive/utils/telas/store/store_crud_base.dart';
+import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/observables/carregando_widget.dart';
+import 'package:flutter_responsive_template/utils/observables/conexao.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/i_inputs.dart';
+import 'package:flutter_responsive_template/utils/telas/partes_tela/posicioned_mensagens.dart';
+import 'package:flutter_responsive_template/utils/telas/store/store_crud_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';

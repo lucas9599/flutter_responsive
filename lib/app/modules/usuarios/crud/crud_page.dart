@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive/app/modules/usuarios/crud/crud_store.dart';
-import 'package:flutter_responsive/utils/telas/inputs/form_generator.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input_checkbox.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input_foto.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input_combobox.dart';
+import 'package:flutter_responsive_template/app/modules/usuarios/crud/crud_store.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/form_generator.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input_checkbox.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input_foto.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input_combobox.dart';
 
 class CrudPage extends FormGenerator<CrudStore> {
   CrudPage({Key? key})

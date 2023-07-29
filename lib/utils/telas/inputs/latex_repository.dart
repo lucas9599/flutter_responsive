@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
 
-import 'package:flutter_responsive/utils/repository/repository_base.dart';
+import 'package:flutter_responsive_template/utils/repository/repository_base.dart';
 
 class LatexRepository extends Repository {
   LatexRepository() : super("avaliacao/latex");

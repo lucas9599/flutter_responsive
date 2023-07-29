@@ -1,8 +1,8 @@
-import 'package:flutter_responsive/constantes.dart';
+import 'package:flutter_responsive_template/constantes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_responsive/utils/module_base/app_controller.dart';
+import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
 
 class Menu extends StatelessWidget {
   final String label;

@@ -1,5 +1,5 @@
-import 'package:flutter_responsive/utils/rotas/mensagens.dart';
-import 'package:flutter_responsive/utils/telas/store/store_base.dart';
+import 'package:flutter_responsive_template/utils/rotas/mensagens.dart';
+import 'package:flutter_responsive_template/utils/telas/store/store_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

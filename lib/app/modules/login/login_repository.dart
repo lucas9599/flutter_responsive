@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:flutter_responsive/model/usuario.dart';
-import 'package:flutter_responsive/constantes.dart';
-import 'package:flutter_responsive/utils/criptografia.dart';
+import 'package:flutter_responsive_template/model/usuario.dart';
+import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/criptografia.dart';
 
 class LoginRepository {
   Dio cliente = Dio();

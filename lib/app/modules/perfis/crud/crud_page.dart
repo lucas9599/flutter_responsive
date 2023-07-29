@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive/app/modules/perfis/crud/crud_store.dart';
-import 'package:flutter_responsive/utils/telas/inputs/form_generator.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input.dart';
-import 'package:flutter_responsive/utils/telas/inputs/input_arvore.dart';
+import 'package:flutter_responsive_template/app/modules/perfis/crud/crud_store.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/form_generator.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input_arvore.dart';
 
 class CrudPage extends FormGenerator<CrudStore> {
   CrudPage({Key? key})

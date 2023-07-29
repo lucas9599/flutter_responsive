@@ -1,6 +1,6 @@
-import 'package:flutter_responsive/app/modules/usuarios/crud/crud_module.dart';
-import 'package:flutter_responsive/app/modules/usuarios/usuarios_page.dart';
-import 'package:flutter_responsive/app/modules/usuarios/usuarios_store.dart';
+import 'package:flutter_responsive_template/app/modules/usuarios/crud/crud_module.dart';
+import 'package:flutter_responsive_template/app/modules/usuarios/usuarios_page.dart';
+import 'package:flutter_responsive_template/app/modules/usuarios/usuarios_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class UsuariosModule extends Module {

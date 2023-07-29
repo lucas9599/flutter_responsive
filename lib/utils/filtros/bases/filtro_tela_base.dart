@@ -1,12 +1,12 @@
 // ignore_for_file: sized_box_for_whitespace
 
-import 'package:flutter_responsive/constantes.dart';
-import 'package:flutter_responsive/utils/filtros/bases/filtro_base.dart';
-import 'package:flutter_responsive/utils/filtros/bases/filtro_controller.dart';
-import 'package:flutter_responsive/utils/observables/carregando_widget.dart';
-import 'package:flutter_responsive/utils/observables/conexao.dart';
-import 'package:flutter_responsive/utils/repository/chaves.dart';
-import 'package:flutter_responsive/utils/telas/extras/scrool.dart';
+import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_controller.dart';
+import 'package:flutter_responsive_template/utils/observables/carregando_widget.dart';
+import 'package:flutter_responsive_template/utils/observables/conexao.dart';
+import 'package:flutter_responsive_template/utils/repository/chaves.dart';
+import 'package:flutter_responsive_template/utils/telas/extras/scrool.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 

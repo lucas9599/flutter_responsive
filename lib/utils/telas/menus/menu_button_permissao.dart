@@ -1,4 +1,4 @@
-import 'package:flutter_responsive/constantes.dart';
+import 'package:flutter_responsive_template/constantes.dart';
 import 'package:flutter/material.dart';
 
 class MenuButtonPermissao extends StatefulWidget {

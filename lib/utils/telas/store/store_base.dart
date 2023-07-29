@@ -1,11 +1,11 @@
 // ignore_for_file: unused_element, library_private_types_in_public_api
 
-import 'package:flutter_responsive/utils/filtros/bases/filtro_base.dart';
-import 'package:flutter_responsive/utils/observables/conexao.dart';
-import 'package:flutter_responsive/utils/rotas/mensagens.dart';
-import 'package:flutter_responsive/utils/telas/datatable/data.dart';
-import 'package:flutter_responsive/utils/repository/repository_base.dart';
-import 'package:flutter_responsive/utils/telas/partes_tela/rota_filtros.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart';
+import 'package:flutter_responsive_template/utils/observables/conexao.dart';
+import 'package:flutter_responsive_template/utils/rotas/mensagens.dart';
+import 'package:flutter_responsive_template/utils/telas/datatable/data.dart';
+import 'package:flutter_responsive_template/utils/repository/repository_base.dart';
+import 'package:flutter_responsive_template/utils/telas/partes_tela/rota_filtros.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import 'package:dio/dio.dart';

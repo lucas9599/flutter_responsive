@@ -1,9 +1,9 @@
-import 'package:flutter_responsive/utils/cards/card_duas_colunas.dart';
-import 'package:flutter_responsive/utils/cards/card_label_valor.dart';
-import 'package:flutter_responsive/utils/module_base/app_controller.dart';
-import 'package:flutter_responsive/utils/telas/datatable/datamobile.dart';
-import 'package:flutter_responsive/utils/telas/menus/menu_button_permissao.dart';
-import 'package:flutter_responsive/utils/telas/store/store_base.dart';
+import 'package:flutter_responsive_template/utils/cards/card_duas_colunas.dart';
+import 'package:flutter_responsive_template/utils/cards/card_label_valor.dart';
+import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
+import 'package:flutter_responsive_template/utils/telas/datatable/datamobile.dart';
+import 'package:flutter_responsive_template/utils/telas/menus/menu_button_permissao.dart';
+import 'package:flutter_responsive_template/utils/telas/store/store_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:data_table_2/data_table_2.dart';

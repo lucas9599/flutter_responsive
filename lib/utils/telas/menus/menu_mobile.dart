@@ -1,4 +1,4 @@
-import 'package:flutter_responsive/utils/telas/menus/menu_espandido.dart';
+import 'package:flutter_responsive_template/utils/telas/menus/menu_espandido.dart';
 import 'package:flutter/material.dart';
 
 class MenuMobile extends StatefulWidget {

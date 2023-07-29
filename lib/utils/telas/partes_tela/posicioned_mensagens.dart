@@ -1,4 +1,4 @@
-import 'package:flutter_responsive/utils/observables/conexao.dart';
+import 'package:flutter_responsive_template/utils/observables/conexao.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_mobx/flutter_mobx.dart';

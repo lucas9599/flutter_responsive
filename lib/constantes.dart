@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter_responsive/model/usuario.dart';
-import 'package:flutter_responsive/utils/telas/menus/menu_espandido.dart';
+import 'package:flutter_responsive_template/model/usuario.dart';
+import 'package:flutter_responsive_template/utils/telas/menus/menu_espandido.dart';
 
 String nomesistema = "AVALIACAO";
 

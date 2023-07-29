@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter_responsive/constantes.dart';
-import 'package:flutter_responsive/utils/filtros/bases/filtro_base.dart';
+import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart';
 import 'package:dio/dio.dart';
 
 enum TipoApi { normal, geral }

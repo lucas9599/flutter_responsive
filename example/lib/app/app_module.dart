@@ -1,11 +1,11 @@
 import 'package:example/app/app_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_responsive/app/modules/login/login_module.dart';
-import 'package:flutter_responsive/app/modules/usuarios/usuarios_module.dart';
-import 'package:flutter_responsive/app/modules/perfis/perfis_module.dart';
-import 'package:flutter_responsive/utils/rotas/rota_modal.dart';
-import 'package:flutter_responsive/utils/filtros/herdados/filtro_usuarios.dart';
-import 'package:flutter_responsive/utils/filtros/herdados/filtro_descricao.dart';
+import 'package:flutter_responsive_template/app/modules/login/login_module.dart';
+import 'package:flutter_responsive_template/app/modules/usuarios/usuarios_module.dart';
+import 'package:flutter_responsive_template/app/modules/perfis/perfis_module.dart';
+import 'package:flutter_responsive_template/utils/rotas/rota_modal.dart';
+import 'package:flutter_responsive_template/utils/filtros/herdados/filtro_usuarios.dart';
+import 'package:flutter_responsive_template/utils/filtros/herdados/filtro_descricao.dart';
 import 'modules/home/home_module.dart';
 
 class AppModule extends Module {

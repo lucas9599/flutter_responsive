@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_responsive/constantes.dart';
+import 'package:flutter_responsive_template/constantes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Config {

@@ -1,11 +1,11 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:dio/dio.dart';
-import 'package:flutter_responsive/utils/observables/conexao.dart';
-import 'package:flutter_responsive/utils/repository/repository_base.dart';
-import 'package:flutter_responsive/utils/telas/extras/padrao_erro.dart';
-import 'package:flutter_responsive/utils/telas/inputs/i_inputs.dart';
-import 'package:flutter_responsive/utils/telas/store/store_base.dart';
+import 'package:flutter_responsive_template/utils/observables/conexao.dart';
+import 'package:flutter_responsive_template/utils/repository/repository_base.dart';
+import 'package:flutter_responsive_template/utils/telas/extras/padrao_erro.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/i_inputs.dart';
+import 'package:flutter_responsive_template/utils/telas/store/store_base.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 part 'store_crud_base.g.dart';
