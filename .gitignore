@@ -28,3 +28,9 @@ migrate_working_dir/
 .dart_tool/
 .packages
 build/
+linux/flutter/ephemeral/.plugin_symlinks/bitsdojo_window_linux
+linux/flutter/ephemeral/.plugin_symlinks/file_selector_linux
+linux/flutter/ephemeral/.plugin_symlinks/path_provider_linux
+linux/flutter/ephemeral/.plugin_symlinks/printing
+linux/flutter/ephemeral/.plugin_symlinks/shared_preferences_linux
+linux/flutter/ephemeral/.plugin_symlinks/url_launcher_linux
