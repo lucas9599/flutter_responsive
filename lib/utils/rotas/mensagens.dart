@@ -6,9 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_responsive/constantes.dart';
 import 'package:printing/printing.dart';
-// ignore: depend_on_referenced_packages
 import 'package:pdf/pdf.dart';
-// ignore: depend_on_referenced_packages
 import 'package:pdf/widgets.dart' as pw;
 import 'package:dio/dio.dart';
 
