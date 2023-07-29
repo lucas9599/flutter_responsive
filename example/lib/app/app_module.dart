@@ -1,0 +1,43 @@
+import 'package:example/app/app_controller.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_responsive/app/modules/login/login_module.dart';
+import 'package:flutter_responsive/app/modules/usuarios/usuarios_module.dart';
+import 'package:flutter_responsive/app/modules/perfis/perfis_module.dart';
+import 'package:flutter_responsive/utils/rotas/rota_modal.dart';
+import 'package:flutter_responsive/utils/filtros/herdados/filtro_usuarios.dart';
+import 'package:flutter_responsive/utils/filtros/herdados/filtro_descricao.dart';
+import 'modules/home/home_module.dart';
+
+class AppModule extends Module {
+  @override
+  final List<Bind> binds = [Bind.lazySingleton((i) => AppController())];
+
+  @override
+  final List<ModularRoute> routes = [
+    ModuleRoute(
+      Modular.initialRoute,
+      module: LoginModule(),
+      transition: TransitionType.noTransition,
+    ),
+    ModuleRoute(
+      "/home",
+      module: HomeModule(),
+      transition: TransitionType.noTransition,
+    ),
+    ModuleRoute(
+      "/usuario",
+      module: UsuariosModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      "/perfis",
+      module: PerfisModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    RotaModal(
+      '/filtrarusuario',
+      child: (_, args) => FiltroUsuario(),
+    ),
+    RotaModal('/filtrardescricao', child: (_, args) => FiltroDescricao())
+  ];
+}
