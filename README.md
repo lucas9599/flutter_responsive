@@ -10,6 +10,34 @@ TODO: Package Inicial para flutter responsivo usando o flutter modular
 
 TODO: No Momento não é possivel testar sem a api.
 
+## Imagens
++ **Tela de Login**
+<img src="/assets/img/login.PNG">
+
++ **Tela Inicial Desktop**
+<img src="/assets/img/inicial.PNG">
+
++ **Tela Inicial Mobile**
+<img src="/assets/img/inicial_mobile.PNG">
+
++ **Tela de Cadastro Desktop**
+<img src="/assets/img/cadastro.PNG">
+
++ **Tela de Cadastro Mobile**
+<img src="/assets/img/cadastro_mobile.PNG">
+
++ **Tela de Filtro**
+<img src="/assets/img/filtro.PNG">
+
++ **Tela de Filtro Selecionados**
+<img src="/assets/img/filtro_selecao.PNG">
+
++ **Menu Mobile**
+<img src="/assets/img/menu_mobile.PNG">
+
++ **Tela de Perfis**
+<img src="/assets/img/perfis.PNG">
+
 ## Configurações Iniciais
 Utilizamos o package **flutter_modular** para gerenciar os Modulos. Faça a configuração de acordo com a documentação do Flutter_Modular.
 No main antes de iniciar  a classe "ModularApp", instancie a classe FlutterResponsive.
@@ -299,30 +327,3 @@ class CrudPage extends FormGenerator<CrudStore> {
 }
 
 ```
-## Imagens
-+ **Tela de Login**
-<img src="/assets/img/login.PNG">
-
-+ **Tela Inicial Desktop**
-<img src="/assets/img/inicial.PNG">
-
-+ **Tela Inicial Mobile**
-<img src="/assets/img/inicial_mobile.PNG">
-
-+ **Tela de Cadastro Desktop**
-<img src="/assets/img/cadastro.PNG">
-
-+ **Tela de Cadastro Mobile**
-<img src="/assets/img/cadastro_mobile.PNG">
-
-+ **Tela de Filtro**
-<img src="/assets/img/filtro.PNG">
-
-+ **Tela de Filtro Selecionados**
-<img src="/assets/img/filtro_selecao.PNG">
-
-+ **Menu Mobile**
-<img src="/assets/img/menu_mobile.PNG">
-
-+ **Tela de Perfis**
-<img src="/assets/img/perfis.PNG">
