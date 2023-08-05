@@ -3,6 +3,7 @@ import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart
 import 'package:flutter_responsive_template/utils/filtros/bases/filtro_textform.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input.dart';
 
+///Filtro Padrão de data
 class FiltrarData extends FiltroTextForm {
   FiltrarData(
       {Key? key,

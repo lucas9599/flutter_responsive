@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+///Classe para animar dados carregando
 class CarregandoWidget extends StatelessWidget {
   const CarregandoWidget({Key? key}) : super(key: key);
 

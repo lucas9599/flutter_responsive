@@ -10,6 +10,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 part 'filtro_controller.g.dart';
 
+///__Controlador de Filtro Basico__
 // ignore: library_private_types_in_public_api
 class FiltroController = _FiltroControllerBase with _$FiltroController;
 

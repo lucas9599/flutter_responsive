@@ -10,11 +10,18 @@ import 'package:flutter_responsive_template/utils/telas/extras/scrool.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+///Tela basica de Filtros
 class FiltroTelaBase extends StatefulWidget {
-/*
- * PARA ATIVAR O MODO LOOKUP PASSAR POR PARAMETRO 
- * keymap indica a posição do map de filtros amarzenados
- */
+  ///
+  ///__dadosFixos__: Caso nao utilize uma api, passe somente dados fixos.
+  ///
+  ///__campodescricao__: Por padrão a classe busca o campo descrição para exibir o nome dos filtros.
+  ///
+  ///__keyMap__: Chave que sera usada no retorno do filtro. Por exemplo pode ter em uma tela
+  ///dois tipos de filtros. Cada filtro é armazenado com uma chave diferente para enviar para api
+
+  ///__filtro__: Padrão de formatação do filtro
+  ///
   FiltroTelaBase(
       {Key? key,
       List<Map<String, dynamic>>? dadosfixos,

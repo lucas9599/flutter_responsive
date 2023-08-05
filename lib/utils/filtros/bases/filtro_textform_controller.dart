@@ -9,6 +9,7 @@ import 'package:mobx/mobx.dart';
 
 part 'filtro_textform_controller.g.dart';
 
+///Controlador de filtro com um ou dois textForm
 class FiltroTextFormController = _FiltroTextFormControllerBase
     with _$FiltroTextFormController;
 

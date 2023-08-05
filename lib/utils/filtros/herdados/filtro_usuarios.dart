@@ -3,6 +3,7 @@ import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart
 import 'package:flutter_responsive_template/utils/filtros/bases/filtro_tela_base.dart';
 import 'package:flutter_responsive_template/utils/repository/chaves.dart';
 
+//Filtro Padrão para Usuários
 class FiltroUsuario extends FiltroTelaBase {
   FiltroUsuario({
     Key? key,

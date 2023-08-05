@@ -1,5 +1,6 @@
 import 'package:encrypt/encrypt.dart';
 
+///Criptografia para dados privados
 abstract class Criptografia {
 //static const key = "23467908765339787373665252425678893";
   static List<String> keys = [
@@ -33,6 +34,7 @@ abstract class Criptografia {
     return res;
   }
 
+  ///Descriptografa dados
   static String descriptografar(String texto) {
     Map<String, String> chavevalor = _getKey(texto);
     texto = chavevalor['texto']!;
@@ -66,6 +68,7 @@ abstract class Criptografia {
     //return result;
   }
 
+  ///criptografa dados
   static String criptografar(String texto) {
     return texto;
     /*

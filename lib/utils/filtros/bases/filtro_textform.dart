@@ -7,6 +7,7 @@ import 'package:flutter_responsive_template/utils/telas/inputs/input_inline.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_template/constantes.dart';
 
+///Filtro com um Input TextForm ou dois quando o FiltroBase tiver a junção Between
 class FiltroTextForm extends StatefulWidget {
   final String titulo;
   final String keyMap;

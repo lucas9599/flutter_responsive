@@ -11,3 +11,7 @@
 ## 1.1.2
 
 * TODO: Quarto Teste
+
+## 1.1.3
+
+* Inicio da documentação

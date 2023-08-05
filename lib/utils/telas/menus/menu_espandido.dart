@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+///Constroe o menu lateral ou o menu mobile
 class MenuExpandido extends StatefulWidget {
   final String label;
   final IconData iconMobile;
