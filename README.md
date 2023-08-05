@@ -11,4 +11,4 @@ TODO: Package Inicial para flutter responsivo usando o flutter modular
 TODO: No Momento não é possivel testar sem a api.
 
 ## TELA DE LOGIN
-<img src="/assets/img/login.png">
+<img src="/assets/img/login.PNG">
