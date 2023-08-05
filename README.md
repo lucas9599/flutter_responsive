@@ -299,4 +299,30 @@ class CrudPage extends FormGenerator<CrudStore> {
 }
 
 ```
+## Imagens
++ **Tela de Login**
 <img src="/assets/img/login.PNG">
+
++ **Tela Inicial Desktop**
+<img src="/assets/img/inicial.PNG">
+
++ **Tela Inicial Mobile**
+<img src="/assets/img/inicial_mobile.PNG">
+
++ **Tela de Cadastro Desktop**
+<img src="/assets/img/cadastro.PNG">
+
++ **Tela de Cadastro Mobile**
+<img src="/assets/img/cadastro_mobile.PNG">
+
++ **Tela de Filtro**
+<img src="/assets/img/filtro.PNG">
+
++ **Tela de Filtro Selecionados**
+<img src="/assets/img/filtro_selecao.PNG">
+
++ **Menu Mobile**
+<img src="/assets/img/menu_mobile.PNG">
+
++ **Tela de Perfis**
+<img src="/assets/img/perfis.PNG">
