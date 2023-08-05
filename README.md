@@ -14,7 +14,7 @@ TODO: No Momento não é possivel testar sem a api.
 Utilizamos o package **flutter_modular** para gerenciar os Modulos. Faça a configuração de acordo com a documentação do Flutter_Modular.
 No main antes de iniciar  a classe "ModularApp", instancie a classe FlutterResponsive.
 O package tambem utiliza o **bitsdojo_window**. Faça a configuração da pasta windows, linux, macos de acordo com a documentação para um melhor resultado nas versões para desktop.
-# Parametros
+# Parâmetros
 + **descricaosistema**: Nome do sistema. Localizado na tela de Login e no AppBar do Painel Principal.
 + **fundoLoginLateral**: Imagem que fica na lateral direita do Login.
 + **pathLogo**: Logo da Aplicação
@@ -140,8 +140,8 @@ class AppModule extends Module {
   ];
 }
 ```
-# Padrao para Herança das Pages e Stores
-+ As classes "Pages" devem herdar da classe TelaDesktopBase. É obrigatório indicar o seu Store (Herdado do StoreBase). Conforme o exemplo da HomePage abaixo.
+# Padrão para herança das Pages e Stores Simples (Sem Datatables) 
++ As "Pages" devem herdar da classe TelaDesktopBase. É obrigatório indicar o seu Store (Herdado do StoreBase). Conforme o exemplo da HomePage abaixo. No caso de uma pagina simples, apenas use os parametros title e conteudo.
 
 ```dart
 import 'package:example/app/modules/home/home_store.dart';
@@ -157,7 +157,7 @@ class HomePage extends TelaDesktopBase<HomeStore> {
             });
 }
 ```
-+ As classes "Stores" devem  Herdar do HomeStore.
++ Os "Stores" devem  herdar do StoreBase.
 
 ```dart
 import 'package:flutter_responsive_template/utils/telas/store/store_base.dart';
@@ -170,4 +170,133 @@ class HomeStore = HomeStoreBase with _$HomeStore;
 abstract class HomeStoreBase extends StoreBase with Store {}
 ```
 
+# Padrão para herança das Pages, repository e Stores (Datatables) 
+Para utilizar o datatable é necessario utilizar as sequintes estrutura de herença:
++ **Dados** : Classe de dados para o popular o datatable. Por padrao a classe gera colunas e linhas a partir dos campos "id", e "descricao" do json obtido da api. Para alterar o padrao gerado reescreva os metodos  "processarRow", e o get "colunas". O get card é chamado quando é identificado uma resolução de dispositivos pequenos. Por padrão é gerado um Card com os "id" e "descricao". Reescreva esse metodo caso deseja outras insformações. Ex.
+
+```dart
+import 'package:flutter_responsive_template/utils/telas/datatable/data.dart';
+class Aluno extends Dados {}
+```
++ **Repository** : Classe para conexao com a Api de dados. Esta classe ja implementa as operações de chamada de crud da api: (GetID, GetAll, delete, save (editar e incluir)).E necessário informar o endpoint da api. Ex.
+```dart
+class AlunoRepository extends Repository {
+  AlunoRepository() : super("aluno");
+}
+```
++ **StoreBase** : Classe que controla as operações basicas do crud. O parametro dataType é uma classe que herda da Dados. Tambem é obrigatório informar o repository.
+```dart
+import 'package:escolas/app/model/aluno.dart';
+import 'package:escolas/app/modules/aluno/aluno_repository.dart';
+import 'package:flutter_responsive_template/utils/telas/store/store_base.dart';
+import 'package:mobx/mobx.dart';
+
+part 'aluno_store.g.dart';
+
+class AlunoStore = _AlunoStoreBase with _$AlunoStore;
+
+abstract class _AlunoStoreBase extends StoreBase with Store {
+  _AlunoStoreBase() : super(datatype: Aluno(), repository: AlunoRepository());
+}
+```
++ **TelaDesktopBase** : Classe que modela a page principal. Utilize os parametros de Title e Filtros (opcional).
+Obs.: Os filtros possui um padrao descrito na classe RotaFiltros. Leia os comentários contidos na classe para obter mais detalhes.
+```dart
+import 'package:escolas/app/modules/aluno/aluno_store.dart';
+import 'package:flutter_responsive_template/utils/telas/partes_tela/rota_filtros.dart';
+import 'package:flutter_responsive_template/utils/telas/tela_desktop.dart';
+
+class AlunoPage extends TelaDesktopBase<AlunoStore> {
+  AlunoPage()
+      : super(title: "Manutenção de Aluno", 
+      filtros: [
+          RotaFiltros(label: "Descrição", rota: "filtrardescricao"),
+          RotaFiltros(
+              label: "Nascimento",
+              rota: "filtrarnascimento",
+          )
+        ]
+      );
+}
+
+```
+# Padrão para herança das Pages, Repositorys e Stores (CRUD)
+Crie um submodulo com o nome Crud e altere a classe de modulo principal conforme o exemplo abaixo:
+Obs.: A rota do submodulo deve chamar "/crud"
+```dart
+import 'package:escolas/app/modules/aluno/crud/crud_module.dart';
+import 'package:escolas/app/modules/aluno/aluno_page.dart';
+import 'package:escolas/app/modules/aluno/aluno_store.dart';
+import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart';
+import 'package:flutter_responsive_template/utils/filtros/herdados/filtrar_data.dart';
+import 'package:flutter_responsive_template/utils/rotas/rota_modal.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+class AlunoModule extends Module {
+  @override
+  final List<Bind> binds = [
+    Bind.lazySingleton((i) => AlunoStore()),
+  ];
+
+  @override
+  final List<ModularRoute> routes = [
+    //pagina principal
+    ChildRoute('/', child: (_, args) => AlunoPage()),
+    //submodulo crud
+    ModuleRoute("/crud",
+        module: CrudModule(), transition: TransitionType.noTransition),
+  ];
+}
+
+
+
+```
++ **CrudStore**: Classe que controla a gravação e popular dados no crud. Obs.: Utilize o mesmo repository do modulo principal ou crie um especifico. 
+```dart 
+import 'package:escolas/app/modules/aluno/aluno_repository.dart';
+import 'package:flutter_responsive_template/utils/telas/store/store_crud_base.dart';
+import 'package:mobx/mobx.dart';
+
+part 'crud_store.g.dart';
+
+class CrudStore = _CrudStoreBase with _$CrudStore;
+
+abstract class _CrudStoreBase extends StoreCrudBase with Store {
+  _CrudStoreBase() : super(repository: AlunoRepository());
+}
+
+```
++ **FormGenerator**:Classe que gera um form. É necessario infomar o CrudBase que vai gerenciar este crud. Os inputs são classes que implementam a interface IInput. Alguns inputs ja estão disponibilizados neste package.
+
+```dart
+import 'package:escolas/app/modules/aluno/crud/crud_store.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/form_generator.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input.dart';
+
+class CrudPage extends FormGenerator<CrudStore> {
+  CrudPage()
+      : super(
+            inputs: [
+              Input(
+                name: "id",
+                label: "Id",
+                isPrimaryKey: true,
+              ),
+              Input(
+                  name: "descricao", label: "Nome do Aluno", obrigatorio: true),
+              Input(
+                  name: "nascimento",
+                  label: "Data de Nascimento",
+                  obrigatorio: true,
+                  inputType: InputType.date),
+            ],
+            title: "Aluno",
+            tuples: [],
+            qtdInputsPorStep: [],
+            height: 600,
+            width: 600,
+          );
+}
+
+```
 <img src="/assets/img/login.PNG">
