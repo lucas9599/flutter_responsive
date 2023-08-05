@@ -15,16 +15,16 @@ O package utiliza o package **flutter_modular** para gerenciar os Modulos. Faça
 No main antes de iniciar  a classe "ModularApp", instancie a classe FlutterResponsive.
 O package tambem utiliza o **bitsdojo_window**. Faça a configuração da pasta windows, linux, macos de acordo com a documentação, para um melhor resultado.
 # Parametros
-+**descricaosistema**: Nome do Sistema. Localizado na tela de Login e no AppBar do painel principal.
-+**fundoLoginLateral**: Imagem que fica na lateral direita do Login.
-+**pathLogo**: Logo da Aplicação
-+**fundoLoginPrincipal**: Imagem de Fundo que fica atras do Painel de login.
-+**infoSistema**: Breve descrição do Sistema que esta localizado na lateral direita do login.
-+**menusExpandidos**: Lista de menus da classe "MenuExpandido". Menus que se adapta automaticamente a resolução da tela. 
++ **descricaosistema**: Nome do Sistema. Localizado na tela de Login e no AppBar do painel principal.
++ **fundoLoginLateral**: Imagem que fica na lateral direita do Login.
++ **pathLogo**: Logo da Aplicação
++ **fundoLoginPrincipal**: Imagem de Fundo que fica atras do Painel de login.
++ **infoSistema**: Breve descrição do Sistema que esta localizado na lateral direita do login.
++ **menusExpandidos**: Lista de menus da classe "MenuExpandido". Menus que se adapta automaticamente a resolução da tela. 
 Consulte a documentação na classe para parametraliza-la corretamente.
 
 
-```flutter
+```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_responsive_template/flutter_responsive.dart';
