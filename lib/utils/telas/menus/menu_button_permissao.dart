@@ -1,6 +1,7 @@
 import 'package:flutter_responsive_template/constantes.dart';
 import 'package:flutter/material.dart';
 
+///Popup com botões que valida acessos de usuarios.
 class MenuButtonPermissao extends StatefulWidget {
   const MenuButtonPermissao({
     Key? key,
@@ -62,6 +63,10 @@ class _MenuButtonPermissaoState extends State<MenuButtonPermissao> {
   }
 }
 
+///__IMPORTANTE__ As permissões tem que ter os mesmo nomes das rotas Principais.
+/// O nome da rota serve para identificar a permissão.
+///
+/// __IMPORTANTE__ O parametro "name" é usado para selecionar uma permissão de uma rota.
 class MenuButtonPermissaoItem {
   MenuButtonPermissaoItem(
       {required this.descricao,

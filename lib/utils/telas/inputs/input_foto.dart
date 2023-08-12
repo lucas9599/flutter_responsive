@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:file_selector/file_selector.dart';
 
+///Input que seleciona uma imagem e envia para o banco de dados.
 class InputFoto extends StatefulWidget implements IInput {
   final InputFotoController controller = InputFotoController();
   @override

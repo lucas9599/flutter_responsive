@@ -11,6 +11,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:data_table_2/data_table_2.dart';
 
+///Classe que modela o body da TelaDesktopBase
 class Body<Store extends StoreBase> extends StatefulWidget {
   final Widget? conteudo;
   final List<RotaFiltros> filtros;

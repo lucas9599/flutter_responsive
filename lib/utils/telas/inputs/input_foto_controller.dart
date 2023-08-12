@@ -3,6 +3,7 @@
 import 'package:mobx/mobx.dart';
 part 'input_foto_controller.g.dart';
 
+///Controlador do InputFoto
 class InputFotoController = _InputFotoControllerBase with _$InputFotoController;
 
 abstract class _InputFotoControllerBase with Store {

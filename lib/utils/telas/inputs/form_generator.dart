@@ -15,6 +15,23 @@ class Tuples {
   Tuples({required this.nome, required this.icon});
 }
 
+///Classe de envio de formulario. É obrigatório informa o StoreCrudBase do formulario.
+///
+///__inputs__: Lista de widgets que inplementam a interface IInput
+///
+///__turples__: Será usado no cabeçalho do step para indicar a etapa selecionada, ou selecionar uma etapa.
+///Se não desejar usar steps, passe por parametros uma lista vazia.
+///
+///__qtdInputsPorStep__: Separa os steps por quantidade de inputs. separe de acordo com a quantidade de turples criadas.
+/// Se não Utilizou steps passe por parametros uma lista vazia.
+///
+/// __height__: Altura do modal
+///
+/// __width__: Largura do modal
+///
+/// __title__: Titulo do form
+///
+///
 class FormGenerator<Store extends StoreCrudBase> extends StatefulWidget {
   final List<IInput> inputs;
   final List<Tuples> tuples;
@@ -75,10 +92,9 @@ class _FormGeneratorState<Store extends StoreCrudBase>
     );
   }
 
+  ///Valida os inputs do form
   validar() {
     if (!_formKey.currentState!.validate()) {
-      // If the form is valid, display a snackbar. In the real world,
-      // you'd often call a server or save the information in a database.
       Modular.get<Store>()
           .mensagemAviso(aviso: "Por favor, prencher todos dados obrigatórios");
       return false;

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
 
+///Cria um inpu do Tipo Combobox
 class InputComboBox extends StatefulWidget implements IInput {
   @override
   final String name;
@@ -19,6 +20,15 @@ class InputComboBox extends StatefulWidget implements IInput {
   final bool obrigatorio;
   final List<FiltroBase> filtro = [];
   final Function? function;
+
+  ///__dados__: Pode ser passado dados locais (Sem ser de uma api)
+  ///
+  ///__function__: Pode se passar uma função que é chamada no evento onChanged
+  ///
+  ///__tablea__: Tabela do banco de dados. O nome da tabela deve ser o mesmo do endpoint.
+  ///O  Combobox vai chamar a api para popular os dados;
+  ///
+  ///__composto__: Indica que o combobox tem duas chaves compostas por "id" e "descricao"
 
   InputComboBox({
     Key? key,
@@ -70,6 +80,7 @@ class InputComboBox extends StatefulWidget implements IInput {
   @override
   String get value => controller.valor ?? "";
 
+  /// Pode se atribuir um filtro no combobox
   setFiltro(List<FiltroBase> filtros) {
     filtro.clear();
     filtro.addAll(filtros);

@@ -1,6 +1,7 @@
 import 'package:flutter_responsive_template/constantes.dart';
 import 'package:flutter/material.dart';
 
+///Menu Mobile. É chamado internamente quando é indentificado uma resolução mobile.
 class MenuButton extends StatefulWidget {
   const MenuButton({
     Key? key,
@@ -49,6 +50,7 @@ class _MenuButtonState extends State<MenuButton> {
   }
 }
 
+///Classe auxiliar dos menus mobile
 class MenuButtonItem {
   MenuButtonItem(
       {required this.descricao, required this.onSelected, this.iconData});

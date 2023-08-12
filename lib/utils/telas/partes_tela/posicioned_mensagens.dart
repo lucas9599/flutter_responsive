@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+///Animações de mensagens do sistema
 class PosicionedMensagem<ConexaoBase extends Conexao> extends StatefulWidget {
   const PosicionedMensagem({Key? key, this.left}) : super(key: key);
   final double? left;

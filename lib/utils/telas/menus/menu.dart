@@ -4,6 +4,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
 
+///Menu componente do MenuExpandido. Verifica se a rota se tem permissão de visualizar.
+
 class Menu extends StatelessWidget {
   final String label;
   final IconData icon;
@@ -15,6 +17,8 @@ class Menu extends StatelessWidget {
               ?['visualizar']?['ativado'] ??
           false;
 
+  ///__mapeado__ indica que a rota utiliza as permissões do modulo. Se for informado false o package não verifica as permissões.
+  ///Exemplo: A rota home não precisa de mapeamento. É uma tela de acesso comum
   const Menu(
       {Key? key,
       required this.label,

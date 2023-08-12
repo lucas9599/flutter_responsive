@@ -12,6 +12,7 @@ import 'package:dio/dio.dart';
 
 part 'store_base.g.dart';
 
+///Classe que controla os datatables.
 class StoreBase = _StoreBaseBase with _$StoreBase;
 
 abstract class _StoreBaseBase extends Conexao with Store, Mensagens {

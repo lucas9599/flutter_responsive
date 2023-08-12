@@ -1,3 +1,4 @@
+/// Classe de validadação de uma data
 abstract class Validador {
   static bool validaData(String data) {
     // data é menor que 8

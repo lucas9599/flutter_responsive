@@ -15,3 +15,7 @@
 ## 1.1.3
 
 * Inicio da documentação
+
+## 1.1.4
+
+* Inicio da documentação (Código)

@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-///Cria um menu esquerdo
+///Cria um menu na lateral esquerda da tela
 class MenuEsquerdo extends StatefulWidget {
+  ///Lista de menus
   final List<MenuExpandido> menusexpandidos;
 
   const MenuEsquerdo({Key? key, required this.menusexpandidos})

@@ -3,6 +3,7 @@
 import 'package:mobx/mobx.dart';
 part 'controller_menu.g.dart';
 
+///Controle de expandir e fechar menus
 class ControllerMenu = _ControllerMenuBase with _$ControllerMenu;
 
 abstract class _ControllerMenuBase with Store {

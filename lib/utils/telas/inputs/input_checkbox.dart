@@ -3,6 +3,7 @@ import 'package:flutter_responsive_template/utils/telas/inputs/input_chekbox_con
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+///Cria um input do Tipo Checkbox.
 class InputCheckBox extends StatefulWidget implements IInput {
   @override
   final String name;
@@ -13,6 +14,8 @@ class InputCheckBox extends StatefulWidget implements IInput {
   final Color? fillColor;
   final bool? filled;
 
+  ///__function__: Execute uma função ao clicar no input (Opcional)
+  ///
   InputCheckBox({
     Key? key,
     required this.name,

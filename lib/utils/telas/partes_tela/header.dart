@@ -5,6 +5,7 @@ import 'package:flutter_responsive_template/utils/telas/menus/windows_buttons.da
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+///Header. Localiza-se no topo da tela.
 class Header extends StatefulWidget {
   const Header({Key? key}) : super(key: key);
 

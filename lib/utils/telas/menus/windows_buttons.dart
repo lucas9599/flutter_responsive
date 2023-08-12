@@ -14,6 +14,7 @@ final closeButtonColors = WindowButtonColors(
     iconNormal: const Color(0xFF805306),
     iconMouseOver: Colors.white);
 
+///Menus de sistemas desktop (Maximinizar, Miminizar e Fechar)
 class WindowButtons extends StatefulWidget {
   const WindowButtons({Key? key}) : super(key: key);
 

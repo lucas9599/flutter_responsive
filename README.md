@@ -2,41 +2,34 @@
 
 TODO: Publicar API backend para o exemplo 
 
-## Getting started
-
-TODO: Package Inicial para flutter responsivo usando o flutter modular
-
-## Additional information
-
-TODO: No Momento não é possivel testar sem a api.
 
 ## Imagens
 + **Tela de Login**
-<img src="/assets/img/login.PNG">
+<img src="./assets/img/login.PNG">
 
 + **Tela Inicial Desktop**
-<img src="/assets/img/inicial.PNG">
+<img src="./assets/img/inicial.PNG">
 
 + **Tela Inicial Mobile**
-<img src="/assets/img/inicial_mobile.PNG">
+<img src="./assets/img/inicial_mobile.PNG">
 
 + **Tela de Cadastro Desktop**
-<img src="/assets/img/cadastro.PNG">
+<img src="./assets/img/cadastro.PNG">
 
 + **Tela de Cadastro Mobile**
-<img src="/assets/img/cadastro_mobile.PNG">
+<img src="./assets/img/cadastro_mobile.PNG">
 
 + **Tela de Filtro**
-<img src="/assets/img/filtro.PNG">
+<img src="./assets/img/filtro.PNG">
 
 + **Tela de Filtro Selecionados**
-<img src="/assets/img/filtro_selecao.PNG">
+<img src="./assets/img/filtro_selecao.PNG">
 
 + **Menu Mobile**
-<img src="/assets/img/menu_mobile.PNG">
+<img src="./assets/img/menu_mobile.PNG">
 
 + **Tela de Perfis**
-<img src="/assets/img/perfis.PNG">
+<img src="./assets/img/perfis.PNG">
 
 ## Configurações Iniciais
 Utilizamos o package **flutter_modular** para gerenciar os Modulos. Faça a configuração de acordo com a documentação do Flutter_Modular.

@@ -3,6 +3,7 @@
 import 'package:mobx/mobx.dart';
 part 'input_chekbox_controller.g.dart';
 
+///Controlador do input checkbox
 class ControllerCheckBox = _ControllerCheckBoxBase with _$ControllerCheckBox;
 
 abstract class _ControllerCheckBoxBase with Store {

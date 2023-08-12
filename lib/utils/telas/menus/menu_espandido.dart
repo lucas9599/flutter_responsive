@@ -8,12 +8,18 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 ///Constroe o menu lateral ou o menu mobile
+///Esta classe identifica qual tipo de menu usar pela resolução
+///Pode ser de varios niveis. Se informar um submenu a classe criar automaticamente um subnivel até ser informado um lista de menus.
 class MenuExpandido extends StatefulWidget {
   final String label;
   final IconData iconMobile;
   final List<Menu> menus;
   final List<MenuExpandido>? submenu;
+
+  ///esta veriavel verifica se é um botão principal(Rows) ou é um menu oculto (Colunm)
   final bool inRowMobile;
+
+  ///identifica a posição do menu mobile
   final int? indexMenu;
 
   bool get isVisible {

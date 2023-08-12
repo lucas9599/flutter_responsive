@@ -1,6 +1,7 @@
 import 'package:flutter_responsive_template/utils/telas/datatable/data.dart';
 import 'package:flutter/material.dart';
 
+///Data Source para ser usado nos datatables
 class DataSource extends DataTableSource {
   // Generate some made-up data
   final Dados? datatype;

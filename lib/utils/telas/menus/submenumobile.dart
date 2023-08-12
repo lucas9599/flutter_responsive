@@ -2,6 +2,7 @@ import 'package:flutter_responsive_template/utils/telas/menus/menu_espandido.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+///Converte um menu expandido em Submenu Mobile.
 class SubMenuMobile extends StatefulWidget {
   const SubMenuMobile({
     Key? key,

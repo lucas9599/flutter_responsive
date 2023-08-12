@@ -10,7 +10,9 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:dio/dio.dart';
 
+///Mensagens padrões do package.
 mixin Mensagens {
+  ///erro no carregamento de um pdf
   erro({String motivo = "Erro, ao carregar dados"}) {
     final doc = pw.Document();
 
@@ -27,6 +29,7 @@ mixin Mensagens {
     return doc.save();
   }
 
+  ///Visualiza um pdf
   visualizadorDePDF(Future<Uint8List> Function() gerar) async {
     await openMensagem(
       PdfPreview(
@@ -54,6 +57,7 @@ mixin Mensagens {
     );
   }
 
+  ///abre um pop-up com um widget
   openMensagem(Widget mensagem, {double width = 500, double height = 500}) {
     Modular.to.push(
       PageRouteBuilder(
@@ -76,6 +80,7 @@ mixin Mensagens {
     );
   }
 
+  ///dialogo de confirmação
   openDialogoConfirmacao(
       {required String mensagem,
       double width = 300,

@@ -7,6 +7,7 @@ import 'package:flutter_responsive_template/utils/telas/inputs/input_checkbox.da
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+///Cria uma arvore que retorna os inputs selecionados
 class InputArvore extends StatefulWidget implements IInput {
   InputArvore({Key? key, required this.name}) : super(key: key);
   @override

@@ -12,10 +12,13 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
+///Classe que modela a tela principal. Todas as Pages principais devem herdar desta classe
 abstract class TelaDesktopBase<Store extends StoreBase> extends StatefulWidget {
   final Widget? Function()? conteudo;
   final String title;
   final List<RotaFiltros>? filtros;
+
+  ///Apenas informe o titulo e o conteudo em telas que não tenha datatables
   const TelaDesktopBase(
       {Key? key, this.conteudo, this.title = "Titulo", this.filtros})
       : super(key: key);

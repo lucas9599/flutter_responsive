@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:data_table_2/data_table_2.dart';
 
+///Classe para popular os datatables. Faça a herança desta classe.
 abstract class Dados implements DadosMobile {
   _comparar(a, b, crescente) {
     if ((a is num && b is num)) {
@@ -19,6 +20,10 @@ abstract class Dados implements DadosMobile {
     }
   }
 
+  ///função que ordena uma lista no datatable
+  ///
+  ///__campo__: Seleciona o campo a ser ordenado em uma sublist. (key retorna um outro Map.)
+  ///__sublist__: Indica que o campo a ser ordenado é um map
   ordernar({String campo = "descricao", String? sublist, required int index}) {
     Modular.get<IAppController>().sorting(
         ordernador: () => dados!.sort((a, b) => _comparar(
@@ -28,6 +33,7 @@ abstract class Dados implements DadosMobile {
         index: index);
   }
 
+  ///Rescreva esse metodo para mudar o padra de colunas (Ação, Cod, Descrição)
   List<DataColumn> get colunas => [
         const DataColumn2(
           fixedWidth: 70,
@@ -51,6 +57,7 @@ abstract class Dados implements DadosMobile {
   bool selected = false;
   List? dados;
 
+  ///Rescreva esse metodo para trocar as opções de editar e excluir
   Widget getmenus({required Map<String, dynamic> d}) => MenuButtonPermissao(
         itens: [
           MenuButtonPermissaoItem(
@@ -74,6 +81,7 @@ abstract class Dados implements DadosMobile {
         ],
       );
 
+  ///Rescreva esse metodo para trocar as colunas menus, id e descrição
   DataRow processarRow({required Map<String, dynamic> d}) {
     return DataRow2(cells: [
       DataCell(getmenus(d: d)),
