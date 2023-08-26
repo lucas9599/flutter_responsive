@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-///Apresenta uma tela modal quando é chamado. Com fundo transparente
 class RotaModal extends ChildRoute {
   RotaModal(String name, {required ModularChild child})
       : super(name,

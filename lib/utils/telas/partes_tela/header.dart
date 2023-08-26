@@ -5,7 +5,6 @@ import 'package:flutter_responsive_template/utils/telas/menus/windows_buttons.da
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-///Header. Localiza-se no topo da tela.
 class Header extends StatefulWidget {
   const Header({Key? key}) : super(key: key);
 
@@ -14,22 +13,34 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
+  Color _adjustColorShade(Color color, int amount) {
+    assert(amount >= -255 && amount <= 255);
+
+    int red = color.red + amount;
+    int green = color.green + amount;
+    int blue = color.blue + amount;
+
+    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
+        blue.clamp(0, 255));
+  }
+
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context).primaryColor;
     return Container(
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Colors.green.shade900,
+            color: _adjustColorShade(color, -150),
             spreadRadius: 10,
             blurRadius: 7,
             offset: const Offset(3, 3), // changes position of shadow
           ),
         ],
-        color: Colors.green.shade900.withOpacity(0.5),
-        image: const DecorationImage(
+        color: _adjustColorShade(color, -150).withOpacity(0.5),
+        image: DecorationImage(
           image: AssetImage(
-            "imagens/top-header.png",
+            imagemheader,
           ),
           fit: BoxFit.fill,
           opacity: 0.1,
@@ -38,16 +49,6 @@ class _HeaderState extends State<Header> {
       height: 50,
       child: Row(
         children: [
-          Visibility(
-            visible: isTelaPequena(context),
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              child: const Icon(
-                Icons.school,
-                color: Colors.white,
-              ),
-            ),
-          ),
           Visibility(
             visible: !isTelaPequena(context),
             child: IconButton(
@@ -61,9 +62,9 @@ class _HeaderState extends State<Header> {
           Expanded(
             child: Visibility(
               visible: MediaQuery.of(context).size.width > 500,
-              child: const Text(
-                " Sistema gerador de Avaliação",
-                style: TextStyle(color: Colors.white),
+              child: Text(
+                nomeSistemaDescricao,
+                style: const TextStyle(color: Colors.white),
               ),
             ),
           ),
@@ -96,7 +97,10 @@ class _HeaderState extends State<Header> {
                           value: 0,
                           child: Row(
                             children: [
-                              Icon(Icons.supervised_user_circle),
+                              Icon(
+                                Icons.supervised_user_circle,
+                                color: Colors.black,
+                              ),
                               Text('Usuarios')
                             ],
                           )),
@@ -104,15 +108,25 @@ class _HeaderState extends State<Header> {
                           value: 2,
                           child: Row(
                             children: [
-                              Icon(Icons.perm_device_info),
+                              Icon(
+                                Icons.perm_device_info,
+                                color: Colors.black,
+                              ),
                               Text('Perfis')
                             ],
                           )),
                       const PopupMenuItem<int>(
-                          value: 1,
-                          child: Row(
-                            children: [Icon(Icons.logout), Text('Sair')],
-                          )),
+                        value: 1,
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.logout,
+                              color: Colors.black,
+                            ),
+                            Text('Sair')
+                          ],
+                        ),
+                      ),
                     ]
                   : [
                       const PopupMenuItem<int>(

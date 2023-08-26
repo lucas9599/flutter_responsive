@@ -85,7 +85,9 @@ class Input extends StatefulWidget implements IInput {
           : controller.text.isNotEmpty
               ? inputType == InputType.date
                   ? "${controller.text.split('/').reversed.join("-")}T00:00:00.000-03:00"
-                  : controller.text.toUpperCase()
+                  : obscureText
+                      ? controller.text
+                      : (controller.text.toUpperCase())
               : ""
     };
   }

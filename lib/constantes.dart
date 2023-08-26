@@ -14,6 +14,8 @@ String fundo = "imagens/fundo_login.jpg";
 String logo = "imagens/fundo2.jpg";
 String nomeSistemaDescricao = "";
 String fundoPrincipal = "";
+String imagemheader = "imagens/top-header.png";
+bool mobilePrimary = true;
 
 String urlApi = "http://$ipservidor:$portaservidor";
 String urlApiGeral = "http://$ipservidor:$portaservidor";

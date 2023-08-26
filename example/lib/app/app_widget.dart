@@ -6,24 +6,29 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'EXEMPLE',
+      title: 'Exemplo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.green,
-          primaryColor: Colors.green,
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ButtonStyle(
-              foregroundColor: MaterialStatePropertyAll(Colors.white),
-              backgroundColor: MaterialStatePropertyAll(
-                Colors.green,
-              ),
-            ),
+        primaryColor: Colors.deepOrange,
+        iconTheme: IconThemeData(color: Colors.white),
+        dataTableTheme: DataTableThemeData(
+          dividerThickness: 1,
+          headingTextStyle: TextStyle(color: Colors.white),
+          headingRowHeight: 30,
+          headingRowColor: MaterialStatePropertyAll(
+            Colors.deepOrange.withOpacity(0.8),
           ),
-          appBarTheme: AppBarTheme(
-              backgroundColor: Colors.green,
-              foregroundColor: Colors.white,
-              centerTitle: true,
-              shadowColor: Colors.black)),
+        ),
+        checkboxTheme: CheckboxThemeData(
+          checkColor: MaterialStatePropertyAll(Colors.blue),
+        ),
+        colorScheme: ColorScheme.light(
+          primary: Colors.red,
+          secondary: Colors.brown.shade900,
+          onPrimary: Colors.white,
+          onSecondary: Colors.white,
+        ),
+      ),
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
       localizationsDelegates: GlobalMaterialLocalizations.delegates,

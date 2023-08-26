@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:flutter_responsive_template/constantes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-///Grava sessão e configurações do package usando o SharedPreferences
+///Configurador de sessões
 class Config {
-  ///grava o sessão do usuario
+  ///grava usuario no cache
   static gravarUsuario({
     required String email,
     required String senha,
@@ -15,7 +15,7 @@ class Config {
         'usuario', json.encode({"email": email, "senha": senha}));
   }
 
-  ///Excluir um usuario
+//Exclui usuario do cache
   static excluirusuario() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString('usuario', "");

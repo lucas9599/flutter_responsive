@@ -19,3 +19,7 @@
 ## 1.1.4
 
 * Inicio da documentação (Código)
+
+## 1.1.5
+
+* Possibilidade de personalizar o tema no app widget (Código)

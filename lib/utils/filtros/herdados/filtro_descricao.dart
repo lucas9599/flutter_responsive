@@ -4,6 +4,7 @@ import 'package:flutter_responsive_template/utils/filtros/bases/filtro_textform.
 
 ///Filtro podrão para descrição
 class FiltroDescricao extends FiltroTextForm {
+  ///__keyMap__ Nome do key enviado no map para a api
   FiltroDescricao(
       {Key? key,
       String titulo = "Filtrar Descrição",

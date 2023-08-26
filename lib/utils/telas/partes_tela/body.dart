@@ -11,7 +11,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:data_table_2/data_table_2.dart';
 
-///Classe que modela o body da TelaDesktopBase
 class Body<Store extends StoreBase> extends StatefulWidget {
   final Widget? conteudo;
   final List<RotaFiltros> filtros;
@@ -28,6 +27,17 @@ class Body<Store extends StoreBase> extends StatefulWidget {
 class _BodyState<Store extends StoreBase> extends State<Body> {
   final store = Modular.get<Store>();
   final appcontroler = Modular.get<IAppController>();
+
+  Color _adjustColorShade(Color color, int amount) {
+    assert(amount >= -255 && amount <= 255);
+
+    int red = color.red + amount;
+    int green = color.green + amount;
+    int blue = color.blue + amount;
+
+    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
+        blue.clamp(0, 255));
+  }
 
   Widget _chips(context, int tipo) {
     Widget chips = Observer(
@@ -96,7 +106,11 @@ class _BodyState<Store extends StoreBase> extends State<Body> {
                                 child: ElevatedButton.icon(
                                   style: ButtonStyle(
                                       backgroundColor: MaterialStatePropertyAll(
-                                          Colors.green.shade900)),
+                                          _adjustColorShade(
+                                              Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
+                                              -150))),
                                   onPressed: () {
                                     Modular.to
                                         .pushNamed("crud/", arguments: -1);
@@ -119,13 +133,19 @@ class _BodyState<Store extends StoreBase> extends State<Body> {
                                 onPressed: () {
                                   store.inicializar();
                                 },
-                                icon: const Icon(Icons.replay_outlined),
+                                icon: const Icon(
+                                  Icons.replay_outlined,
+                                  color: Colors.black,
+                                ),
                               ),
                               IconButton(
                                 onPressed: () {
                                   store.imprimirListagem();
                                 },
-                                icon: const Icon(Icons.print),
+                                icon: const Icon(
+                                  Icons.print,
+                                  color: Colors.black,
+                                ),
                               ),
                               Visibility(
                                 visible: widget.filtros.isNotEmpty,
@@ -194,9 +214,6 @@ class _BodyState<Store extends StoreBase> extends State<Body> {
                                           sortAscending:
                                               this.appcontroler.crescente,
                                           dataRowHeight: 30,
-                                          headingRowColor:
-                                              MaterialStateProperty.all<Color>(
-                                                  Colors.grey.shade200),
 
                                           columns: this.store.datatype!.colunas,
                                           rows: this.appcontroler.ordenacao ==

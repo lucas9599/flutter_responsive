@@ -10,11 +10,13 @@ import 'app/app_widget.dart';
 
 void main() {
   FlutterResposive(
-    descricaosistema: "SIGA",
+    descricaosistema: "MEU SISTEMA",
     fundoLoginLateral: "imagens/fundo_login.jpg",
     pathLogo: "imagens/avaliacao.png",
     fundoLoginPrincipal: "imagens/fundo2.jpg",
-    infosistema: "Sistema de Avaliacao",
+    pathImageHeader: "imagens/top-header.png",
+    menuMobilePrimaryColor: true,
+    infosistema: "Lorem Ipsum is simply dummy text of the",
     menusexpandidos: [
       MenuExpandido(
         label: "Principal",
@@ -25,6 +27,12 @@ void main() {
             label: "Home",
             icon: Icons.home,
             rota: "/home",
+            mapeado: false,
+          ),
+          Menu(
+            label: "Home 2",
+            icon: Icons.home_filled,
+            rota: "/home2",
             mapeado: false,
           ),
         ],

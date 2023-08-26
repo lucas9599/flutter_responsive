@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_responsive_template/constantes.dart';
 import 'package:printing/printing.dart';
+// ignore: depend_on_referenced_packages
 import 'package:pdf/pdf.dart';
+// ignore: depend_on_referenced_packages
 import 'package:pdf/widgets.dart' as pw;
 import 'package:dio/dio.dart';
 
@@ -29,7 +31,7 @@ mixin Mensagens {
     return doc.save();
   }
 
-  ///Visualiza um pdf
+  ///visualiza o PDF
   visualizadorDePDF(Future<Uint8List> Function() gerar) async {
     await openMensagem(
       PdfPreview(
@@ -57,7 +59,7 @@ mixin Mensagens {
     );
   }
 
-  ///abre um pop-up com um widget
+  ///abre um pop-up com o widget
   openMensagem(Widget mensagem, {double width = 500, double height = 500}) {
     Modular.to.push(
       PageRouteBuilder(
@@ -71,7 +73,9 @@ mixin Mensagens {
             width: !isTelaPequena(context) ? width : 1000,
             height: !isTelaPequena(context) ? height : 1000,
             child: Scaffold(
-              appBar: AppBar(),
+              appBar: AppBar(
+                backgroundColor: Theme.of(context).primaryColor,
+              ),
               body: mensagem,
             ),
           ),

@@ -5,7 +5,7 @@ import 'package:flutter_responsive_template/utils/telas/inputs/input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-///Input de Seleção de multiplos valores com uma tela de pesquisa.
+///InputLookup precisa de uma tela de pesquisa
 class InputLookup extends StatefulWidget implements IInput {
   final FiltroTelaBase telaPesquisa;
   @override

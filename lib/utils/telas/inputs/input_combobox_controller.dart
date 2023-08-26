@@ -3,7 +3,7 @@
 import 'package:mobx/mobx.dart';
 part 'input_combobox_controller.g.dart';
 
-///Controlador do InputComboBox
+///Controlador de InputCheck box
 class InputComboboxController = _InputComboboxControllerBase
     with _$InputComboboxController;
 

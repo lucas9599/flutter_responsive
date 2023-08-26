@@ -33,63 +33,96 @@ abstract class Dados implements DadosMobile {
         index: index);
   }
 
-  ///Rescreva esse metodo para mudar o padra de colunas (Ação, Cod, Descrição)
-  List<DataColumn> get colunas => [
-        const DataColumn2(
-          fixedWidth: 70,
-          label: Text("Ação"),
-        ),
-        DataColumn2(
-          fixedWidth: 100,
-          label: const Text("Cod"),
-          numeric: true,
-          onSort: (columnIndex, ascending) {
-            ordernar(campo: "id", index: columnIndex);
-          },
-        ),
-        DataColumn2(
-          onSort: (columnIndex, ascending) {
-            ordernar(index: columnIndex);
-          },
-          label: const Text("Descricao"),
-        ),
-      ];
+  ///rescreva esse metodo apenas se desejar adicionar outras colunas as colunas padroes
+  List<DataColumn> get outrascolunas => [];
+
+  ///Rescreva esse metodo para mudar o padrão de colunas (Ação, Cod, Descrição)
+  List<DataColumn> get colunas {
+    final List<DataColumn> c = [
+      const DataColumn2(
+        fixedWidth: 70,
+        label: Text("Ação"),
+      ),
+      DataColumn2(
+        fixedWidth: 100,
+        label: const Text("Cod"),
+        numeric: true,
+        onSort: (columnIndex, ascending) {
+          ordernar(campo: "id", index: columnIndex);
+        },
+      ),
+      DataColumn2(
+        onSort: (columnIndex, ascending) {
+          ordernar(index: columnIndex);
+        },
+        label: const Text("Descricao"),
+      ),
+    ];
+    final outras = outrascolunas;
+    if (outras.isNotEmpty) {
+      c.addAll(outras);
+    }
+    return c;
+  }
+
   bool selected = false;
   List? dados;
 
-  ///Rescreva esse metodo para trocar as opções de editar e excluir
-  Widget getmenus({required Map<String, dynamic> d}) => MenuButtonPermissao(
-        itens: [
-          MenuButtonPermissaoItem(
-            iconData: Icons.edit,
-            name: "editar",
-            descricao: "Editar",
-            onSelected: () {
-              Modular.get<StoreBase>().editar(id: d['id']);
-            },
-            // icon: Icon(Icons.edit),
-          ),
-          MenuButtonPermissaoItem(
-            name: "excluir",
-            iconData: Icons.delete,
-            descricao: "Excluir",
-            onSelected: () {
-              Modular.get<StoreBase>().delete(id: d['id']);
-            },
-            // icon: Icon(Icons.delete),
-          ),
-        ],
-      );
+  ///Caso precise adicionar outros nenos alem do editar, excluir substitua esse metodo
+  List<MenuButtonPermissaoItem> getOutrosMenus(
+          {required Map<String, dynamic> d}) =>
+      [];
 
-  ///Rescreva esse metodo para trocar as colunas menus, id e descrição
+  ///apenas rescreva esse metodo se querer substituir todo padrao de menus, se for adicionar outros alem do editar, remover e excluir
+  ///rescreva o getOutrosMenus
+  Widget getmenus({required Map<String, dynamic> d}) {
+    final itens = [
+      MenuButtonPermissaoItem(
+        iconData: Icons.edit,
+        name: "editar",
+        descricao: "Editar",
+        onSelected: () {
+          Modular.get<StoreBase>().editar(id: d['id']);
+        },
+        // icon: Icon(Icons.edit),
+      ),
+      MenuButtonPermissaoItem(
+        name: "excluir",
+        iconData: Icons.delete,
+        descricao: "Excluir",
+        onSelected: () {
+          Modular.get<StoreBase>().delete(id: d['id']);
+        },
+        // icon: Icon(Icons.delete),
+      ),
+    ];
+    final outros = getOutrosMenus(d: d);
+    if (outros.isNotEmpty) {
+      itens.addAll(outros);
+    }
+    return MenuButtonPermissao(
+      itens: itens,
+    );
+  }
+
+  ///rescreva esse metodo apenas se desejar adicionar outras celulas a tabela. Importante tambem rescrever o  gerOutrasColunas
+  List<DataCell> processarOutrasCell({required Map<String, dynamic> d}) => [];
+
+  ///Rescreva esse metodo apenas se desejar mudar todas as colunas, senao adicione outras colunas no processar Outras cell
   DataRow processarRow({required Map<String, dynamic> d}) {
-    return DataRow2(cells: [
+    final cells = [
       DataCell(getmenus(d: d)),
       DataCell(Text(d['id'].toString())),
       DataCell(
         Text(d['descricao']),
       ),
-    ]);
+    ];
+
+    final outras = processarOutrasCell(d: d);
+    if (outras.isNotEmpty) {
+      cells.addAll(outras);
+    }
+    return DataRow2(cells: cells);
   }
 
   // List<DataRow> get rows {

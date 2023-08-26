@@ -4,9 +4,8 @@ import 'package:flutter_responsive_template/utils/telas/inputs/input_foto_contro
 //import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:file_selector/file_selector.dart';
 
-///Input que seleciona uma imagem e envia para o banco de dados.
+///Abre uma foto em gereciador de arquivo
 class InputFoto extends StatefulWidget implements IInput {
   final InputFotoController controller = InputFotoController();
   @override
@@ -37,8 +36,8 @@ class _InputFotoState extends State<InputFoto> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.green),
-          color: Colors.green.shade100),
+          border: Border.all(color: Theme.of(context).colorScheme.primary),
+          color: Theme.of(context).colorScheme.primary.withOpacity(0.1)),
       margin: const EdgeInsets.all(5),
       padding: const EdgeInsets.all(5),
       child: Column(
@@ -48,7 +47,8 @@ class _InputFotoState extends State<InputFoto> {
           Text(
             widget.label,
             style: TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.green.shade900),
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.primary),
           ),
           Observer(
             builder: (context) => Container(
@@ -70,21 +70,7 @@ class _InputFotoState extends State<InputFoto> {
             width: 200,
             child: ElevatedButton.icon(
                 onPressed: () async {
-                  const XTypeGroup typeGroup = XTypeGroup(
-                    label: 'images',
-                    extensions: <String>['jpg', 'png'],
-                  );
-                  final XFile? file = await openFile(
-                      acceptedTypeGroups: <XTypeGroup>[typeGroup]);
-                  // #enddocregion SingleOpen
-                  if (file == null) {
-                    // Operation was canceled by the user.
-                    return;
-                  } else {
-                    widget.controller.foto =
-                        base64.encode(await file.readAsBytes());
-                  }
-
+                  widget.controller.openImagens();
                   // User canceled the picker
                 },
                 icon: const Icon(Icons.file_open),

@@ -7,6 +7,7 @@ enum StatusConexao { carregando, sucesso, erro }
 
 enum Mensagem { sucesso, erro, aviso, semmensagem }
 
+///Gerencia o estado da comunicação com a api
 class Conexao = _ConexaoBase with _$Conexao;
 
 abstract class _ConexaoBase with Store {

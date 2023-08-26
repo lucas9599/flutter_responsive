@@ -20,6 +20,7 @@ class LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context).primaryColor;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.build_circle_rounded),
@@ -51,7 +52,7 @@ class LoginPageState extends State<LoginPage> {
                   Expanded(
                     child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.green[900],
+                          color: _adjustColorShade(color, -200),
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             opacity: 0.3,
@@ -65,20 +66,20 @@ class LoginPageState extends State<LoginPage> {
                             width: 700,
                             height:
                                 isTelaGrande(context) ? 600 : double.infinity,
-                            decoration: const BoxDecoration(
-                              color: Colors.green,
+                            decoration: BoxDecoration(
+                              color: color,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
+                                  const BorderRadius.all(Radius.circular(20)),
                             ),
                             child: Row(
                               children: [
                                 Expanded(
                                     child: SingleChildScrollView(
                                   child: Container(
-                                    decoration: const BoxDecoration(
-                                      color: Colors.green,
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(20)),
+                                    decoration: BoxDecoration(
+                                      color: color,
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(20)),
                                     ),
                                     padding: const EdgeInsets.all(20),
                                     child: Column(
@@ -119,10 +120,10 @@ class LoginPageState extends State<LoginPage> {
                                                   child: ElevatedButton(
                                                       style: ButtonStyle(
                                                           backgroundColor:
-                                                              MaterialStateProperty
-                                                                  .all(Colors
-                                                                          .green[
-                                                                      900])),
+                                                              MaterialStateProperty.all(
+                                                                  _adjustColorShade(
+                                                                      color,
+                                                                      -200))),
                                                       onPressed: () {
                                                         store.login();
                                                       },
@@ -214,7 +215,7 @@ class LoginPageState extends State<LoginPage> {
 
                         /* Expanded(
           child: WindowBorder(
-            color: Colors.green,
+            color: color,
             width: 1,
             child: FlutterLogin(
               title: 'Avaliação',
@@ -236,5 +237,16 @@ class LoginPageState extends State<LoginPage> {
               ),
       ),
     );
+  }
+
+  Color _adjustColorShade(Color color, int amount) {
+    assert(amount >= -255 && amount <= 255);
+
+    int red = color.red + amount;
+    int green = color.green + amount;
+    int blue = color.blue + amount;
+
+    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
+        blue.clamp(0, 255));
   }
 }

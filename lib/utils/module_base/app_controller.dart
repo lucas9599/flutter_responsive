@@ -10,13 +10,15 @@ enum Sorting {
   ordenando,
 }
 
-///Atenção o app controller tem que extender dessa classe
+///__Atenção o app controller tem que extender dessa classe__
 class IAppController = _IAppControllerBase with _$IAppController;
 
 abstract class _IAppControllerBase extends Conexao with Store {
+  ///esconde o menu
   @observable
   bool esconder = false;
 
+  ///ordenar a tabela crescente
   @observable
   bool crescente = false;
 

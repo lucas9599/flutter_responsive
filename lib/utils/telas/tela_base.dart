@@ -12,25 +12,31 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-///Classe que modela a tela principal. Todas as Pages principais devem herdar desta classe
-abstract class TelaDesktopBase<Store extends StoreBase> extends StatefulWidget {
+///Tela basica
+abstract class TelaBase<Store extends StoreBase> extends StatefulWidget {
   final Widget? Function()? conteudo;
   final String title;
   final List<RotaFiltros>? filtros;
-
-  ///Apenas informe o titulo e o conteudo em telas que não tenha datatables
-  const TelaDesktopBase(
-      {Key? key, this.conteudo, this.title = "Titulo", this.filtros})
+  const TelaBase({Key? key, this.conteudo, this.title = "Titulo", this.filtros})
       : super(key: key);
 
   @override
-  State<TelaDesktopBase> createState() => _TelaDesktopBaseState<Store>();
+  State<TelaBase> createState() => _TelaBaseState<Store>();
 }
 
-class _TelaDesktopBaseState<Store extends StoreBase>
-    extends State<TelaDesktopBase> {
+class _TelaBaseState<Store extends StoreBase> extends State<TelaBase> {
   final store = Modular.get<Store>();
   final appcontroler = Modular.get<IAppController>();
+  Color _adjustColorShade(Color color, int amount) {
+    assert(amount >= -255 && amount <= 255);
+
+    int red = color.red + amount;
+    int green = color.green + amount;
+    int blue = color.blue + amount;
+
+    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
+        blue.clamp(0, 255));
+  }
 
   Widget _mobile() {
     return Column(
@@ -49,35 +55,17 @@ class _TelaDesktopBaseState<Store extends StoreBase>
                       child: Container(
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                          color: Colors.green.shade900.withOpacity(0.5),
-                          image: const DecorationImage(
+                          color: _adjustColorShade(
+                                  Theme.of(context).colorScheme.primary, -150)
+                              .withOpacity(0.5),
+                          image: DecorationImage(
                             image: AssetImage(
-                              "imagens/top-header.png",
+                              imagemheader,
                             ),
                             fit: BoxFit.fill,
-                            opacity: 0.3,
+                            opacity: 0.1,
                           ),
                         ),
-
-                        /*
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topRight,
-                            end: Alignment.bottomLeft,
-                            stops: [
-                              0.1,
-                              0.4,
-                              0.6,
-                              0.9,
-                            ],
-                            colors: [
-                              Colors.teal,
-                              Color.fromARGB(255, 1, 60, 3),
-                              Color.fromARGB(255, 3, 61, 5),
-                              Color.fromARGB(255, 2, 63, 4),
-                            ],
-                          ),
-                        ),*/
                         height: 180,
                         child: ScrollConfiguration(
                           behavior: MyCustomScrollBehavior(),
@@ -158,33 +146,16 @@ class _TelaDesktopBaseState<Store extends StoreBase>
                             child: Container(
                               padding: const EdgeInsets.all(20),
                               decoration: BoxDecoration(
-                                color: Colors.green[900],
-                                image: const DecorationImage(
+                                color: _adjustColorShade(
+                                    Theme.of(context).colorScheme.primary,
+                                    -200),
+                                image: DecorationImage(
                                     image: AssetImage(
-                                      "imagens/top-header.png",
+                                      imagemheader,
                                     ),
                                     fit: BoxFit.fill,
-                                    opacity: 0.3),
+                                    opacity: 0.1),
                               ),
-                              //color: Colors.green[900],
-                              //  decoration: BoxDecoration(
-                              // gradient: LinearGradient(
-                              //    begin: Alignment.topRight,
-                              //   end: Alignment.bottomLeft,
-                              //   stops: [
-                              //   0.1,
-                              //    0.4,
-                              //    0.6,
-                              //    0.9,
-                              //  ],
-                              //  colors: [
-                              //  Colors.teal,
-                              //    Color.fromARGB(255, 1, 60, 3),
-                              //   Color.fromARGB(255, 3, 61, 5),
-                              //    Color.fromARGB(255, 2, 63, 4),
-                              // ],
-                              // ),
-                              //   ),
                               height: 180,
                               child: Text(
                                 widget.title,
@@ -220,7 +191,7 @@ class _TelaDesktopBaseState<Store extends StoreBase>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green.shade800,
+      backgroundColor: _adjustColorShade(Theme.of(context).primaryColor, -200),
       body: SafeArea(
         child: Stack(
           children: [
@@ -232,9 +203,10 @@ class _TelaDesktopBaseState<Store extends StoreBase>
       bottomNavigationBar: isTelaPequena(context)
           ? Observer(
               builder: (context) => CurvedNavigationBar(
-                  buttonBackgroundColor: Colors.green,
+                  buttonBackgroundColor: Theme.of(context).colorScheme.primary,
                   height: 60,
-                  color: Colors.green.shade900,
+                  color: _adjustColorShade(
+                      Theme.of(context).colorScheme.primary, -200),
                   index: appcontroler.index,
                   backgroundColor: Colors.white,
                   items: menus,

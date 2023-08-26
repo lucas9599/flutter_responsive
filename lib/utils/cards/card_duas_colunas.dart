@@ -38,7 +38,7 @@ class _CardDuasColunasState extends State<CardDuasColunas> {
         contentPadding: const EdgeInsets.all(0),
         leading: Container(
           padding: const EdgeInsets.all(5),
-          color: Colors.green.shade700,
+          color: Theme.of(context).colorScheme.primary,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

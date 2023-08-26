@@ -1,13 +1,13 @@
 import 'package:example/app/modules/home/home_store.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_responsive_template/utils/telas/tela_base.dart';
 
-import 'package:flutter_responsive_template/utils/telas/tela_desktop.dart';
-
-class HomePage extends TelaDesktopBase<HomeStore> {
+class HomePage extends TelaBase<HomeStore> {
   HomePage()
       : super(
-            title: "Home",
-            conteudo: () {
-              return Container();
-            });
+          title: "Home",
+          conteudo: () {
+            return Container();
+          },
+        );
 }

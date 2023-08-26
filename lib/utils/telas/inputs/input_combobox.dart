@@ -7,13 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
 
-///Cria um inpu do Tipo Combobox
+///Input comboBox
 class InputComboBox extends StatefulWidget implements IInput {
   @override
   final String name;
   final InputComboboxController controller = InputComboboxController();
   final String label;
-  final String tabela;
+  final String? endpoint;
   final List<Map<String, dynamic>>? dados;
   final List response = [];
   final bool composto;
@@ -21,15 +21,16 @@ class InputComboBox extends StatefulWidget implements IInput {
   final List<FiltroBase> filtro = [];
   final Function? function;
 
-  ///__dados__: Pode ser passado dados locais (Sem ser de uma api)
+  ///__composto__: Recebe o __setValue__ com id e descricao, senão somente o valor (o value do map não é outro map).
+  ///Retorna o __getValue__ com id e descricao, senao somente retorna um valor (Não vai ser um map)
   ///
-  ///__function__: Pode se passar uma função que é chamada no evento onChanged
+  ///__dados__ : Iniciar o combo box com dados locais. um list com map com keys "id" e "descricao"
   ///
-  ///__tablea__: Tabela do banco de dados. O nome da tabela deve ser o mesmo do endpoint.
-  ///O  Combobox vai chamar a api para popular os dados;
+  ///__endpoint__ : Indica o endpoint da api para busca de dados
   ///
-  ///__composto__: Indica que o combobox tem duas chaves compostas por "id" e "descricao"
-
+  ///__function__ : Funcão que é executada apos uma selecção. A função recebe um valor (String) e executa
+  ///
+  ///__É obrigatório passar um endpoint ou um dado para preencher o combobox__
   InputComboBox({
     Key? key,
     required this.name,
@@ -37,9 +38,11 @@ class InputComboBox extends StatefulWidget implements IInput {
     this.obrigatorio = false,
     this.dados,
     this.function,
-    required this.tabela,
+    this.endpoint,
     this.composto = true,
-  }) : super(key: key);
+  })  : assert(dados != null && endpoint == null ||
+            endpoint != null && dados == null),
+        super(key: key);
   @override
   State<InputComboBox> createState() => _InputComboBoxState();
 
@@ -80,7 +83,6 @@ class InputComboBox extends StatefulWidget implements IInput {
   @override
   String get value => controller.valor ?? "";
 
-  /// Pode se atribuir um filtro no combobox
   setFiltro(List<FiltroBase> filtros) {
     filtro.clear();
     filtro.addAll(filtros);
@@ -98,8 +100,8 @@ class InputComboBox extends StatefulWidget implements IInput {
       d = dados;
     } else {
       Repository repository = Repository(
-        tabela,
-        //tabela: this.tabela,
+        endpoint!,
+        //endpoint: this.endpoint,
         tipoApi: TipoApi.normal,
         isLista: true,
       );

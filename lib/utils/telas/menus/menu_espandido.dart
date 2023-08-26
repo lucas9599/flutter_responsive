@@ -21,6 +21,16 @@ class MenuExpandido extends StatefulWidget {
 
   ///identifica a posição do menu mobile
   final int? indexMenu;
+  Color _adjustColorShade(Color color, int amount) {
+    assert(amount >= -255 && amount <= 255);
+
+    int red = color.red + amount;
+    int green = color.green + amount;
+    int blue = color.blue + amount;
+
+    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
+        blue.clamp(0, 255));
+  }
 
   bool get isVisible {
     if (submenu != null) {
@@ -58,9 +68,12 @@ class MenuExpandido extends StatefulWidget {
         context: context,
         backgroundColor: Colors.transparent,
         builder: (BuildContext context) {
+          final cor = mobilePrimary
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).colorScheme.secondary;
           return Container(
             decoration: BoxDecoration(
-              color: Colors.green[900],
+              color: _adjustColorShade(cor, -100),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
@@ -90,6 +103,9 @@ class _MenuExpandidoState extends State<MenuExpandido> {
   }
 
   _mobile() {
+    final onSecundary = mobilePrimary
+        ? Theme.of(context).colorScheme.onPrimary
+        : Theme.of(context).colorScheme.onSecondary;
     return Visibility(
         visible: widget.isVisible,
         child: TextButton(
@@ -98,21 +114,18 @@ class _MenuExpandidoState extends State<MenuExpandido> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(widget.iconMobile, color: Colors.white),
+                      Icon(widget.iconMobile, color: onSecundary),
                       Text(
                         widget.label,
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 7),
+                        style: TextStyle(color: onSecundary, fontSize: 7),
                       )
                     ],
                   )
                 : Row(children: [
-                    Icon(widget.iconMobile, color: Colors.white),
+                    Icon(widget.iconMobile, color: onSecundary),
                     Text(
                       widget.label,
-                      style: const TextStyle(
-                        color: Colors.white,
-                      ),
+                      style: TextStyle(color: onSecundary),
                     )
                   ]),
             onPressed: () {
@@ -121,13 +134,15 @@ class _MenuExpandidoState extends State<MenuExpandido> {
   }
 
   _desktop() {
+    final normal = Theme.of(context).colorScheme.onSecondary;
+
     return Visibility(
       visible: widget.isVisible,
       child: Observer(
         builder: (context) => Container(
           padding: EdgeInsets.only(
               left: !Modular.get<IAppController>().esconder
-                  ? 10
+                  ? 0
                   : isTelaPequena(context)
                       ? 20
                       : 5),
@@ -142,11 +157,10 @@ class _MenuExpandidoState extends State<MenuExpandido> {
                                 ? Icons.arrow_right
                                 : Icons.arrow_drop_down)
                             : widget.iconMobile,
-                        color: Colors.green[900],
+                        color: normal,
                       ),
                       title: !Modular.get<IAppController>().esconder
-                          ? Text(widget.label,
-                              style: TextStyle(color: Colors.green[900]))
+                          ? Text(widget.label, style: TextStyle(color: normal))
                           : null,
                       onTap: () => widget.controller.selecionar(),
                     )),

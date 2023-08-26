@@ -2,13 +2,14 @@ import 'package:flutter_responsive_template/constantes.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/i_inputs.dart';
 import 'package:flutter/material.dart';
 
-///É possivel configurar a quantidade de inputs em uma linha em tres resoluções. MD (médio), SM (pequena), LG(grande)
+///Gerencia a alocação de varios inputs em uma linha de acordo com a resolução
 class InputInline extends StatefulWidget implements IInput {
-  ///__colslg__: Quantidade de inputs em tela grande
+  ///__colslg__ quantidade de inputs em uma linha em resolução grande
   ///
-  ///__colsmd__: Quantidade de Inputs em uma tela média
+  ///__colsmd__ quantidade de inputs em um linha em resolução media
   ///
-  ///__colssm__: Quantidade de Inputs em uma tela pequena
+  ///__colssm__ quantidade de inputs em uma linha em resolução pequena
+  ///
   const InputInline({
     Key? key,
     required this.inputs,

@@ -1,7 +1,17 @@
 name: flutter_responsive_template
 description: Package para desenvolvimento de aplicações responsivas (desktop e mobile). 
-version: 1.1.4
-homepage: https://github.com/lucas9599/flutter_responsive
+version: 1.1.5
+homepage: 
+ - https://github.com/lucas9599/flutter_responsive
+ - https://github.com/lucas9599/flutter_responsive/blob/main/assets/img/login.PNG
+ - https://github.com/lucas9599/flutter_responsive/blob/main/assets/img/inicial.PNG
+ - https://github.com/lucas9599/flutter_responsive/blob/main/assets/img/inicial_mobile.PNG
+ - https://github.com/lucas9599/flutter_responsive/blob/main/assets/img/cadastro.PNG
+ - https://github.com/lucas9599/flutter_responsive/blob/main/assets/img/cadastro_mobile.PNG
+ - https://github.com/lucas9599/flutter_responsive/blob/main/assets/img/filtro.PNG
+ - https://github.com/lucas9599/flutter_responsive/blob/main/assets/img/filtro_selecao.PNG
+ - https://github.com/lucas9599/flutter_responsive/blob/main/assets/img/menu_mobile.PNG
+ - https://github.com/lucas9599/flutter_responsive/blob/main/assets/img/perfis.PNG
 
 environment:
   sdk: ">=2.12.0 <4.0.0"
@@ -24,7 +34,7 @@ dependencies:
   enhance_stepper: ^0.1.1
   printing: ^5.11.0
   pdf: ^3.10.0
-  file_selector: ^0.9.0
+  file_selector: ^1.0.0
   bitsdojo_window: ^0.1.5
   data_table_2: ^2.3.12
   encrypt: ^5.0.1
@@ -32,6 +42,7 @@ dependencies:
   brasil_fields: ^1.9.1
   curved_navigation_bar: ^1.0.3
   flutter_native_splash: ^2.2.19  
+  image: ^4.0.17
  
 
 dev_dependencies:

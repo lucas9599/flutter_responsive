@@ -10,6 +10,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 part 'store_crud_base.g.dart';
 
+///controlador basico para cruds
 class StoreCrudBase = _StoreCrudBaseBase with _$StoreCrudBase;
 
 abstract class _StoreCrudBaseBase extends Conexao with Store {

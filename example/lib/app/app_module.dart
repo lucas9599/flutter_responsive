@@ -1,4 +1,5 @@
 import 'package:example/app/app_controller.dart';
+import 'package:example/app/modules/home2/home2_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_responsive_template/app/modules/login/login_module.dart';
 import 'package:flutter_responsive_template/app/modules/usuarios/usuarios_module.dart';
@@ -22,6 +23,11 @@ class AppModule extends Module {
     ModuleRoute(
       "/home",
       module: HomeModule(),
+      transition: TransitionType.noTransition,
+    ),
+    ModuleRoute(
+      "/home2",
+      module: Home2Module(),
       transition: TransitionType.noTransition,
     ),
     ModuleRoute(

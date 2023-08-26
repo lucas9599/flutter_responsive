@@ -1,4 +1,4 @@
-///Controllador do input arvore
+///Controlador de um input no formato de arvore
 class InputArvoreController {
   final Map<String, dynamic> _values = {};
   add(Map<String, dynamic> values) {

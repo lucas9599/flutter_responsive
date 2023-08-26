@@ -26,16 +26,22 @@ class _MenuButtonPermissaoState extends State<MenuButtonPermissao> {
     List<PopupMenuItem<MenuButtonPermissaoItem>> itens = [];
     for (int i = 0; i < widget.itens.length; i++) {
       if (widget.itens[i].isVisible) {
-        itens.add(PopupMenuItem<MenuButtonPermissaoItem>(
+        itens.add(
+          PopupMenuItem<MenuButtonPermissaoItem>(
             value: widget.itens[i],
             child: Row(
               children: [
                 widget.itens[i].iconData != null
-                    ? Icon(widget.itens[i].iconData!)
+                    ? Icon(
+                        widget.itens[i].iconData!,
+                        color: Colors.black,
+                      )
                     : Container(),
                 Text(widget.itens[i].descricao)
               ],
-            )));
+            ),
+          ),
+        );
       }
     }
 
