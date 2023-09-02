@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_responsive_template/model/usuario.dart';
 import 'package:flutter_responsive_template/utils/telas/menus/menu_espandido.dart';
 
-String nomesistema = "AVALIACAO";
+String nomesistema = "";
 
 List<MenuExpandido> menus = [];
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_template/app/modules/usuarios/crud/crud_store.dart';
+import 'package:flutter_responsive_template/utils/filtros/herdados/filtrar_perfil.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/crud_base.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_checkbox.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_responsive_template/utils/telas/inputs/input_foto.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_combobox.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_incolumn.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_inline.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input_lookup.dart';
 
 ///Crud Basica dos usuarios
 class CrudPage extends CrudBase<CrudStore> {
@@ -47,11 +49,17 @@ class CrudPage extends CrudBase<CrudStore> {
                 obrigatorio: true,
               ),
               Input(name: "senha", label: "Senha", obscureText: true),
-              InputComboBox(
+              InputLookup(
                 name: "id_perfil",
                 label: "Perfil",
-                endpoint: "servidor_perfil",
+                obrigatorio: true,
+                telaPesquisa: FiltrarPerfil(isLookup: true),
               ),
+              // InputComboBox(
+              //// name: "id_perfil",
+              //  label: "Perfil",
+              //  endpoint: "servidor_perfil",
+              // ),
             ],
             title: "Usuários",
             height: 700,

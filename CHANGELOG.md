@@ -23,3 +23,8 @@
 ## 1.1.5
 
 * Possibilidade de personalizar o tema no app widget (Código)
+
+## 1.1.6
+
+* Pesquisa com crud
+

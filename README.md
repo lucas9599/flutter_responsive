@@ -5,7 +5,7 @@ TODO: Publicar API backend para o exemplo
 
 ## Imagens
 + **Tela de Login**
-<img src="./assets/img/login.PNG">
+<img src="https://github.com/lucas9599/flutter_responsive/blob/main/assets/img/login.PNG">
 
 + **Tela Inicial Desktop**
 <img src="./assets/img/inicial.PNG">

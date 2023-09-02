@@ -5,7 +5,6 @@ import 'package:flutter_responsive_template/app/modules/login/login_module.dart'
 import 'package:flutter_responsive_template/app/modules/usuarios/usuarios_module.dart';
 import 'package:flutter_responsive_template/app/modules/perfis/perfis_module.dart';
 import 'package:flutter_responsive_template/utils/rotas/rota_modal.dart';
-import 'package:flutter_responsive_template/utils/filtros/herdados/filtro_usuarios.dart';
 import 'package:flutter_responsive_template/utils/filtros/herdados/filtro_descricao.dart';
 import 'modules/home/home_module.dart';
 
@@ -39,10 +38,6 @@ class AppModule extends Module {
       "/perfis",
       module: PerfisModule(),
       transition: TransitionType.fadeIn,
-    ),
-    RotaModal(
-      '/filtrarusuario',
-      child: (_, args) => FiltroUsuario(),
     ),
     RotaModal('/filtrardescricao', child: (_, args) => FiltroDescricao())
   ];

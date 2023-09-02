@@ -22,6 +22,8 @@ class FiltroTelaBase extends StatefulWidget {
 
   ///__filtro__: Padrão de formatação do filtro
   ///
+
+  final String? rotacrud;
   FiltroTelaBase(
       {Key? key,
       List<Map<String, dynamic>>? dadosfixos,
@@ -30,6 +32,7 @@ class FiltroTelaBase extends StatefulWidget {
       this.campodescricao = "descricao",
       required this.keyMap,
       required FiltroBase filtro,
+      this.rotacrud,
       TipoApi tipoApi = TipoApi.normal,
       required bool isLookup})
       : super(key: key) {
@@ -39,6 +42,7 @@ class FiltroTelaBase extends StatefulWidget {
         filtro: filtro,
         isLookup: isLookup,
         tipoApi: tipoApi,
+        rotacrud: rotacrud,
         dadosfixos: dadosfixos,
         keyMap: keyMap);
   }
@@ -65,13 +69,47 @@ class _FiltroTelaBaseState extends State<FiltroTelaBase> {
             width: !isTelaPequena(context) ? 500 : null,
             child: Scaffold(
               appBar: AppBar(
-                title: Text(widget.titulo),
-              ),
+                  title: Row(
+                children: [
+                  Text(widget.titulo),
+                  Expanded(child: Container()),
+                  Visibility(
+                    visible: (widget.rotacrud ?? "").isNotEmpty
+                        ? (usuarioLogado?.admin ?? false)
+                            ? true
+                            : usuarioLogado?.permissoes?[
+                                        widget.rotacrud?.replaceAll("/", "")]
+                                    ?['permissoes']?["incluir"]?['ativado'] ??
+                                false
+                        : false,
+                    child: TextButton(
+                      onPressed: () {
+                        widget.controller.atualizar();
+                      },
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.add,
+                            color: Theme.of(context).colorScheme.onPrimary,
+                          ),
+                          Text(
+                            "Novo",
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.onPrimary,
+                              fontSize: 12,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              )),
               body: Observer(
                 builder: (context) => Column(
                   children: [
                     Container(
-                      color: Colors.green,
+                      color: Theme.of(context).primaryColor,
                       padding: const EdgeInsets.only(
                           left: 20, right: 20, top: 10, bottom: 10),
                       child: widget.controller.pesquisa,

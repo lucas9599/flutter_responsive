@@ -18,6 +18,7 @@ abstract class _FiltroControllerBase extends Conexao with Store {
   bool isLookup = false;
   ObservableList<int> selecionados = <int>[].asObservable();
   ObservableList<InputCheckBox> dados = <InputCheckBox>[].asObservable();
+  String? rotacrud;
   late String endpoint;
   late FiltroBase filtro;
   late String keyMap;
@@ -65,6 +66,7 @@ abstract class _FiltroControllerBase extends Conexao with Store {
       {required String endpoint,
       required String campodescricao,
       required FiltroBase filtro,
+      String? rotacrud,
       TipoApi tipoApi = TipoApi.normal,
       bool isLookup = false,
       List<Map<String, dynamic>>? dadosfixos,
@@ -76,6 +78,7 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     this.campodescricao = campodescricao;
     this.endpoint = endpoint;
     this.dadosfixos = dadosfixos;
+    this.rotacrud = rotacrud;
     if (!this.isLookup) {
       inicializar();
     }
@@ -92,6 +95,13 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     if (resposta.isNotEmpty) {
       return resposta.first;
     }
+  }
+
+  atualizar() async {
+    await Modular.to.pushNamed(
+        "$rotacrud${rotacrud!.endsWith("/") ? "" : "/"}crud",
+        arguments: -1);
+    inicializar(filtros: filtros);
   }
 
   inicializar({

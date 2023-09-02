@@ -123,7 +123,10 @@ class _InputLookupState extends State<InputLookup> {
                     }
                   }
                 },
-                icon: const Icon(Icons.search))
+                icon: Icon(
+                  Icons.search,
+                  color: Theme.of(context).colorScheme.primary,
+                ))
           ],
         )
       ]),
