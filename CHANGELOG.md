@@ -28,3 +28,6 @@
 
 * Pesquisa com crud
 
+## 1.1.7
+
+* Alteração no layout do menu lateral.
