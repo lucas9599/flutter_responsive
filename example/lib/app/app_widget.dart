@@ -9,22 +9,22 @@ class AppWidget extends StatelessWidget {
       title: 'Exemplo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.deepOrange,
+        primaryColor: Colors.indigo,
         iconTheme: IconThemeData(color: Colors.white),
         dataTableTheme: DataTableThemeData(
           dividerThickness: 1,
           headingTextStyle: TextStyle(color: Colors.white),
           headingRowHeight: 30,
           headingRowColor: MaterialStatePropertyAll(
-            Colors.deepOrange.withOpacity(0.8),
+            Colors.indigo.withOpacity(0.8),
           ),
         ),
         checkboxTheme: CheckboxThemeData(
           checkColor: MaterialStatePropertyAll(Colors.blue),
         ),
         colorScheme: ColorScheme.light(
-          primary: Colors.red,
-          secondary: Colors.brown.shade900,
+          primary: Colors.purple,
+          secondary: Colors.indigo,
           onPrimary: Colors.white,
           onSecondary: Colors.white,
         ),

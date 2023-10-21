@@ -31,7 +31,7 @@ class _HeaderState extends State<Header> {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: _adjustColorShade(color, -150),
+            color: _adjustColorShade(color, -50),
             spreadRadius: 10,
             blurRadius: 7,
             offset: const Offset(3, 3), // changes position of shadow

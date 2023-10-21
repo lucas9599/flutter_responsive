@@ -148,7 +148,7 @@ class _TelaBaseState<Store extends StoreBase> extends State<TelaBase> {
                               decoration: BoxDecoration(
                                 color: _adjustColorShade(
                                     Theme.of(context).colorScheme.primary,
-                                    -200),
+                                    -120),
                                 image: DecorationImage(
                                     image: AssetImage(
                                       imagemheader,
@@ -206,7 +206,7 @@ class _TelaBaseState<Store extends StoreBase> extends State<TelaBase> {
                   buttonBackgroundColor: Theme.of(context).colorScheme.primary,
                   height: 60,
                   color: _adjustColorShade(
-                      Theme.of(context).colorScheme.primary, -200),
+                      Theme.of(context).colorScheme.primary, -100),
                   index: appcontroler.index,
                   backgroundColor: Colors.white,
                   items: menus,

@@ -55,7 +55,9 @@ class Menu extends StatelessWidget {
         visible: isVisible,
         child: Container(
           decoration: BoxDecoration(
-              color: rotaatual == rota ? corForte : null,
+              color: (rotaatual.isEmpty ? rota == "/home" : rotaatual == rota)
+                  ? corForte
+                  : null,
               border: const Border(left: BorderSide(color: Colors.grey))),
           padding: EdgeInsets.only(
               left: !Modular.get<IAppController>().esconder

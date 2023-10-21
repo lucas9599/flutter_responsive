@@ -75,54 +75,97 @@ class _MenuEsquerdoState extends State<MenuEsquerdo> {
                 ),
                 Container(
                   width: 200,
-                  height: 180,
+                  height: 80,
                   // ignore: sort_child_properties_last
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Expanded(child: Container()),
-                      CircleAvatar(
-                          foregroundImage: usuarioLogado!.foto != null
-                              ? MemoryImage(usuarioLogado!.foto!)
-                              : null,
-                          backgroundColor:
-                              Theme.of(context).colorScheme.primary,
-
-                          // ignore: sort_child_properties_last
-                          child: Text(
-                            _getIniciais(usuarioLogado!.usuario!),
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).colorScheme.onPrimary),
-                          ),
-                          radius: 40),
-                      Visibility(
-                        visible: !Modular.get<IAppController>().esconder,
+                      Center(
                         child: Container(
                           padding: const EdgeInsets.all(10),
-                          child: Column(children: [
-                            Row(children: [
-                              const Icon(
-                                Icons.email,
-                                color: Colors.white,
-                              ),
-                              const SizedBox(width: 10),
-                              Text(usuarioLogado!.email!, maxLines: 1),
-                            ]),
-                            Row(
-                              children: [
-                                const Icon(Icons.person, color: Colors.white),
-                                const SizedBox(width: 10),
-                                Text(
-                                  usuarioLogado!.usuario!,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CircleAvatar(
+                                  foregroundImage: usuarioLogado!.foto != null
+                                      ? MemoryImage(usuarioLogado!.foto!)
+                                      : null,
+                                  backgroundColor:
+                                      Theme.of(context).colorScheme.primary,
+
+                                  // ignore: sort_child_properties_last
+                                  child: Text(
+                                    _getIniciais(usuarioLogado!.usuario!),
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onPrimary),
+                                  ),
+                                  radius: 20),
+                              Visibility(
+                                visible:
+                                    !Modular.get<IAppController>().esconder,
+                                child: Container(
+                                  padding: const EdgeInsets.all(5),
+                                  child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Row(children: [
+                                          Icon(
+                                            Icons.email,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .onSecondary,
+                                            size: 10,
+                                          ),
+                                          const SizedBox(width: 10),
+                                          Text(
+                                            usuarioLogado!.email!,
+                                            maxLines: 1,
+                                            style: TextStyle(
+                                              fontSize: 10,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .onSecondary,
+                                            ),
+                                          ),
+                                        ]),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.person,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .onSecondary,
+                                              size: 10,
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Text(
+                                              usuarioLogado!.usuario!,
+                                              style: TextStyle(
+                                                fontSize: 10,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSecondary,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ]),
                                 ),
-                              ],
-                            ),
-                          ]),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      Expanded(child: Container()),
-                      Visibility(
+                      /* Visibility(
                         visible: !Modular.get<IAppController>().esconder,
                         child: Container(
                           padding: const EdgeInsets.all(2),
@@ -133,27 +176,35 @@ class _MenuEsquerdoState extends State<MenuEsquerdo> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.online_prediction,
+                                    size: 15,
                                     color: _adjustColorShade(secundary, 200)),
                                 Text("online",
                                     textAlign: TextAlign.center,
                                     maxLines: 1,
                                     style: TextStyle(
+                                        fontSize: 15,
                                         color:
                                             _adjustColorShade(secundary, 200))),
                               ]),
                           color: Colors.black.withOpacity(0.70),
                         ),
                       )
+                    */
                     ],
                   ),
                   decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: _adjustColorShade(
+                    Theme.of(context).colorScheme.secondary,
+                    -25,
+                  )
+                      /*
                       image: DecorationImage(
                           opacity: !Modular.get<IAppController>().esconder
                               ? 0.4
                               : 0.3,
                           image: const AssetImage("imagens/fundo.jpg"),
-                          fit: BoxFit.cover)),
+                          fit: BoxFit.cover)*/
+                      ),
                 ),
                 Expanded(
                   child: ListView(
@@ -163,6 +214,7 @@ class _MenuEsquerdoState extends State<MenuEsquerdo> {
                     ),
                   ),
                 ),
+                /*
                 Container(
                   width: MediaQuery.of(context).size.width,
                   padding: const EdgeInsets.all(5),
@@ -178,6 +230,7 @@ class _MenuEsquerdoState extends State<MenuEsquerdo> {
                     ),
                   ),
                 )
+                */
               ],
             ),
           ),

@@ -149,21 +149,27 @@ class _MenuExpandidoState extends State<MenuExpandido> {
           child: Column(
             children: [
               Observer(
-                builder: ((context) => ListTile(
-                      minLeadingWidth: 10,
-                      leading: Icon(
-                        !Modular.get<IAppController>().esconder
-                            ? (!widget.controller.espandido
-                                ? Icons.arrow_right
-                                : Icons.arrow_drop_down)
-                            : widget.iconMobile,
-                        color: normal,
-                      ),
-                      title: !Modular.get<IAppController>().esconder
-                          ? Text(widget.label, style: TextStyle(color: normal))
-                          : null,
-                      onTap: () => widget.controller.selecionar(),
-                    )),
+                builder: (context) => Container(
+                  color: widget.controller.espandido
+                      ? widget._adjustColorShade(
+                          Theme.of(context).colorScheme.secondary, -30)
+                      : null,
+                  child: ListTile(
+                    minLeadingWidth: 10,
+                    leading: Icon(
+                      !Modular.get<IAppController>().esconder
+                          ? (!widget.controller.espandido
+                              ? Icons.arrow_right
+                              : Icons.arrow_drop_down)
+                          : widget.iconMobile,
+                      color: normal,
+                    ),
+                    title: !Modular.get<IAppController>().esconder
+                        ? Text(widget.label, style: TextStyle(color: normal))
+                        : null,
+                    onTap: () => widget.controller.selecionar(),
+                  ),
+                ),
               ),
               Observer(
                 builder: (context) => Visibility(

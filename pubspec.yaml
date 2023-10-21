@@ -1,6 +1,6 @@
 name: flutter_responsive_template
 description: Package para desenvolvimento de aplicações responsivas (desktop e mobile). 
-version: 1.1.6
+version: 1.1.7
 homepage: https://github.com/lucas9599/flutter_responsive
 
 environment:
@@ -17,22 +17,22 @@ dependencies:
   flutter_localizations:
     sdk: flutter  
   flutter_mobx: ^2.0.6+1
-  mobx: ^2.0.7+4
+  mobx: ^2.2.1
   flutter_modular: ^5.0.3
-  shared_preferences: ^2.0.18
+  shared_preferences: ^2.2.2
   select_form_field: ^2.2.0
   enhance_stepper: ^0.1.1
   printing: ^5.11.0
-  pdf: ^3.10.0
-  file_selector: ^1.0.0
+  pdf: ^3.10.4
+  file_selector: ^1.0.1
   bitsdojo_window: ^0.1.5
-  data_table_2: ^2.3.12
-  encrypt: ^5.0.1
+  data_table_2: ^2.5.8
+  encrypt: ^5.0.3
   date_field: ^3.0.3
-  brasil_fields: ^1.9.1
+  brasil_fields: ^1.14.0
   curved_navigation_bar: ^1.0.3
   flutter_native_splash: ^2.2.19  
-  image: ^4.0.17
+  image: ^4.1.3
  
 
 dev_dependencies:
