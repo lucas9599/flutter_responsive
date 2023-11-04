@@ -55,8 +55,8 @@ class InputComboBox extends StatefulWidget implements IInput {
               "id": controller.valor ?? "",
               "descricao": (dados?.isNotEmpty ?? false)
                   ? (response.firstWhere((element) =>
-                          element['id'] ==
-                          int.parse(controller.valor ?? "-1"))?['descricao'] ??
+                          element['id'].toString() ==
+                          (controller.valor ?? "-1"))?['descricao'] ??
                       "")
                   : ""
             }

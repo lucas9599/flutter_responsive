@@ -31,3 +31,7 @@
 ## 1.1.7
 
 * Alteração no layout do menu lateral.
+
+## 1.1.8
+
+* Correção do InputComboBox
