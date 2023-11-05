@@ -42,3 +42,6 @@
 ## 1.1.10
 
 * Correção do Input tipo currency
+## 1.1.11
+
+* Correção do Input tipo currency
