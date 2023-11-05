@@ -83,11 +83,14 @@ class Input extends StatefulWidget implements IInput {
       name: (latext && controller.text.isNotEmpty)
           ? controller.text
           : controller.text.isNotEmpty
-              ? inputType == InputType.date
-                  ? "${controller.text.split('/').reversed.join("-")}T00:00:00.000-03:00"
-                  : obscureText
-                      ? controller.text
-                      : (controller.text.toUpperCase())
+              ? inputType == InputType.currency
+                  ? double.parse(
+                      controller.text.replaceAll(".", "").replaceAll(',', "."))
+                  : inputType == InputType.date
+                      ? "${controller.text.split('/').reversed.join("-")}T00:00:00.000-03:00"
+                      : obscureText
+                          ? controller.text
+                          : (controller.text.toUpperCase())
               : ""
     };
   }
@@ -99,7 +102,9 @@ class Input extends StatefulWidget implements IInput {
       valor = valor.split('-').reversed.join("/");
     }
     controller.text = ((valor) ?? valorinicial ?? "");
-
+    if (inputType == InputType.currency) {
+      controller.text = controller.text.replaceAll(".", ",");
+    }
     if (controller.text.isEmpty && isPrimaryKey) {
       controller.text = "-1";
     } else if (latext && controller.text.isNotEmpty) {
