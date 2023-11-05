@@ -36,6 +36,6 @@
 
 * Correção do InputComboBox
 
-## 1.1.8
+## 1.1.9
 
 * Correção do Input tipo currency
