@@ -58,6 +58,17 @@ class FiltroTelaBase extends StatefulWidget {
 }
 
 class _FiltroTelaBaseState extends State<FiltroTelaBase> {
+  Color _adjustColorShade(Color color, int amount) {
+    assert(amount >= -255 && amount <= 255);
+
+    int red = color.red + amount;
+    int green = color.green + amount;
+    int blue = color.blue + amount;
+
+    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
+        blue.clamp(0, 255));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -82,7 +93,12 @@ class _FiltroTelaBaseState extends State<FiltroTelaBase> {
                                     ?['permissoes']?["incluir"]?['ativado'] ??
                                 false
                         : false,
-                    child: TextButton(
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                        _adjustColorShade(
+                            Theme.of(context).colorScheme.primary, -70),
+                      )),
                       onPressed: () {
                         widget.controller.atualizar();
                       },
@@ -92,11 +108,14 @@ class _FiltroTelaBaseState extends State<FiltroTelaBase> {
                             Icons.add,
                             color: Theme.of(context).colorScheme.onPrimary,
                           ),
-                          Text(
-                            "Novo",
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.onPrimary,
-                              fontSize: 12,
+                          Container(
+                            padding: EdgeInsets.only(bottom: 3),
+                            child: Text(
+                              "Novo",
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.onPrimary,
+                                fontSize: 8,
+                              ),
                             ),
                           )
                         ],
