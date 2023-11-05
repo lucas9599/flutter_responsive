@@ -48,3 +48,6 @@
 ## 1.1.12
 
 * Correção do botão novo
+## 1.1.13
+
+* Correção do botão novo

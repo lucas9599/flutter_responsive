@@ -10,19 +10,19 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.indigo,
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         dataTableTheme: DataTableThemeData(
           dividerThickness: 1,
-          headingTextStyle: TextStyle(color: Colors.white),
+          headingTextStyle: const TextStyle(color: Colors.white),
           headingRowHeight: 30,
           headingRowColor: MaterialStatePropertyAll(
             Colors.indigo.withOpacity(0.8),
           ),
         ),
-        checkboxTheme: CheckboxThemeData(
+        checkboxTheme: const CheckboxThemeData(
           checkColor: MaterialStatePropertyAll(Colors.blue),
         ),
-        colorScheme: ColorScheme.light(
+        colorScheme: const ColorScheme.light(
           primary: Colors.purple,
           secondary: Colors.indigo,
           onPrimary: Colors.white,

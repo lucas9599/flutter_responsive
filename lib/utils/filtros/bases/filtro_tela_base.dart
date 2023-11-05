@@ -109,7 +109,7 @@ class _FiltroTelaBaseState extends State<FiltroTelaBase> {
                             color: Theme.of(context).colorScheme.onPrimary,
                           ),
                           Container(
-                            padding: EdgeInsets.only(bottom: 3),
+                            padding: const EdgeInsets.only(bottom: 3),
                             child: Text(
                               "Novo",
                               style: TextStyle(
