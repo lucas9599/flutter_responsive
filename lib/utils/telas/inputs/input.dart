@@ -103,7 +103,9 @@ class Input extends StatefulWidget implements IInput {
     }
     controller.text = ((valor) ?? valorinicial ?? "");
     if (inputType == InputType.currency) {
-      controller.text = controller.text.replaceAll(".", ",");
+      String valorFormatado = NumberFormat.currency(locale: 'pt_BR', symbol: '')
+          .format(values[name]);
+      controller.text = valorFormatado;
     }
     if (controller.text.isEmpty && isPrimaryKey) {
       controller.text = "-1";
