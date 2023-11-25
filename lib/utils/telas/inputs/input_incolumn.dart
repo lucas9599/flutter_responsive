@@ -35,6 +35,13 @@ class InputInColunm extends StatefulWidget implements IInput {
 
   @override
   String get value => "";
+
+  @override
+  clean() {
+    for (var element in inputs) {
+      element.clean();
+    }
+  }
 }
 
 class _InputInColunmState extends State<InputInColunm> {

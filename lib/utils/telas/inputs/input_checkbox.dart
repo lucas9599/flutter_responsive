@@ -41,6 +41,11 @@ class InputCheckBox extends StatefulWidget implements IInput {
 
   @override
   String get value => controller.selecionado.toString();
+
+  @override
+  clean() {
+    controller.selecionado = initialValue;
+  }
 }
 
 class _InputCheckBoxState extends State<InputCheckBox> {

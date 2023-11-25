@@ -88,6 +88,12 @@ class InputLookup extends StatefulWidget implements IInput {
 
   @override
   String get value => id.value;
+
+  @override
+  clean() {
+    descricao.clean();
+    id.clean();
+  }
 }
 
 class _InputLookupState extends State<InputLookup> {

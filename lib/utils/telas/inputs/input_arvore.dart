@@ -29,6 +29,9 @@ class InputArvore extends StatefulWidget implements IInput {
 
   @override
   String get value => "";
+
+  @override
+  clean() {}
 }
 
 class _InputArvoreState extends State<InputArvore> {

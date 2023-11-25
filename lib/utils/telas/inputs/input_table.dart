@@ -38,6 +38,11 @@ class InputTable extends StatefulWidget implements IInput {
 
   @override
   String get value => json.encode(dados.toList());
+
+  @override
+  clean() {
+    dados.clear();
+  }
 }
 
 class _InputTableState extends State<InputTable> {

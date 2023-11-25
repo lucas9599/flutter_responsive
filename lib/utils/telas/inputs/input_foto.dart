@@ -29,6 +29,11 @@ class InputFoto extends StatefulWidget implements IInput {
 
   @override
   String get value => controller.foto;
+
+  @override
+  clean() {
+    controller.foto = "";
+  }
 }
 
 class _InputFotoState extends State<InputFoto> {

@@ -54,11 +54,6 @@ class CrudUsuarioPage extends CrudBase<CrudUsuarioStore> {
               obrigatorio: true,
               telaPesquisa: FiltrarPerfil(isLookup: true),
             ),
-            // InputComboBox(
-            //// name: "id_perfil",
-            //  label: "Perfil",
-            //  endpoint: "servidor_perfil",
-            // ),
           ],
           title: "Usuários",
           height: 700,

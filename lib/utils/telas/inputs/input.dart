@@ -116,6 +116,11 @@ class Input extends StatefulWidget implements IInput {
 
   @override
   String get value => controller.text;
+
+  @override
+  clean() {
+    controller.text = "";
+  }
 }
 
 class _InputState extends State<Input> with Mensagens {

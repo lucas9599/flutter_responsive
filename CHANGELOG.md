@@ -57,3 +57,6 @@
 
 ## 1.1.15
 * atualização do flutter modular
+
+## 1.1.16
+* Novo input. O InputDados

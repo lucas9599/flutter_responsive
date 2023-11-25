@@ -119,6 +119,9 @@ class InputComboBox extends StatefulWidget implements IInput {
     });
     response.addAll(d ?? []);
   }
+
+  @override
+  clean() {}
 }
 
 class _InputComboBoxState extends State<InputComboBox> {
