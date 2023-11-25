@@ -5,7 +5,9 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class PosicionedMensagem<ConexaoBase extends Conexao> extends StatefulWidget {
-  const PosicionedMensagem({Key? key, this.left}) : super(key: key);
+  const PosicionedMensagem({Key? key, this.left, this.isCrud = false})
+      : super(key: key);
+  final bool isCrud;
   final double? left;
   @override
   State<PosicionedMensagem> createState() =>
@@ -14,7 +16,8 @@ class PosicionedMensagem<ConexaoBase extends Conexao> extends StatefulWidget {
 
 class _PosicionedMensagemState<ConexaoBase extends Conexao>
     extends State<PosicionedMensagem> {
-  final appcontroler = Modular.get<ConexaoBase>();
+  final appcontroler =
+      Modular.tryGet<ConexaoBase>() ?? Modular.get<ConexaoBase>(key: "tabela");
   @override
   Widget build(BuildContext context) {
     return Observer(

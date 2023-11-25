@@ -4,9 +4,12 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 class Home2Module extends Module {
   @override
-  final List<Bind> binds = [Bind.lazySingleton((i) => Home2Store()),];
+  void binds(i) {
+    i.addSingleton(Home2Store.new, key: "tabela");
+  }
 
   @override
-  final List<ModularRoute> routes = [ChildRoute('/', child: (_, args) => Home2Page()),];
-
+  void routes(RouteManager r) {
+    r.child("/", child: (contex) => Home2Page());
+  }
 }

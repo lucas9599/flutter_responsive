@@ -16,6 +16,7 @@ void main() {
     fundoLoginPrincipal: "imagens/fundo2.jpg",
     pathImageHeader: "imagens/top-header.png",
     menuMobilePrimaryColor: true,
+    logoSecundario: Icon(Icons.edit, size: 50),
     infosistema: "Lorem Ipsum is simply dummy text of the",
     menusexpandidos: [
       MenuExpandido(

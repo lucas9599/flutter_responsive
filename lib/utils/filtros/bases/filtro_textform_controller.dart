@@ -39,7 +39,8 @@ abstract class _FiltroTextFormControllerBase with Store {
         inputType: inputType,
       );
     }
-    this.filtro = Modular.get<StoreBase>().filtros[keyMap] ?? filtro;
+    this.filtro =
+        Modular.get<StoreBase>(key: "tabela").filtros[keyMap] ?? filtro;
 
     if (this.filtro.valor.isNotEmpty) {
       input.setValue(
@@ -84,7 +85,7 @@ abstract class _FiltroTextFormControllerBase with Store {
   }
 
   filtrar() {
-    StoreBase store = Modular.get<StoreBase>();
+    StoreBase store = Modular.get<StoreBase>(key: "tabela");
 
     if (input.value.isNotEmpty && (input2?.value.isNotEmpty ?? true)) {
       bool resposta = _formatarFiltro(input);

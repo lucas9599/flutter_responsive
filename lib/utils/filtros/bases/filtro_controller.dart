@@ -71,7 +71,8 @@ abstract class _FiltroControllerBase extends Conexao with Store {
       bool isLookup = false,
       List<Map<String, dynamic>>? dadosfixos,
       required String keyMap}) {
-    this.filtro = Modular.get<StoreBase>().filtros[keyMap] ?? filtro;
+    this.filtro =
+        Modular.get<StoreBase>(key: "tabela").filtros[keyMap] ?? filtro;
     this.isLookup = isLookup;
     this.keyMap = keyMap;
     this.tipoApi = tipoApi;

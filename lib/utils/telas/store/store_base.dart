@@ -13,7 +13,7 @@ import 'package:dio/dio.dart';
 part 'store_base.g.dart';
 
 ///classe basica para os controladores de tabelas
-class StoreBase = _StoreBaseBase with _$StoreBase;
+abstract class StoreBase = _StoreBaseBase with _$StoreBase;
 
 abstract class _StoreBaseBase extends Conexao with Store, Mensagens {
   final Dados? datatype;
@@ -50,7 +50,7 @@ abstract class _StoreBaseBase extends Conexao with Store, Mensagens {
         conexao = StatusConexao.sucesso;
       }
       conexao = StatusConexao.sucesso;
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       datatype!.dados = [];
       if ((ex.response?.statusCode ?? -1) == 401) {
         mensagemAviso(aviso: "Sessão expirada!Favor fazer novo login!");
@@ -83,7 +83,7 @@ abstract class _StoreBaseBase extends Conexao with Store, Mensagens {
         await repository!.delete(id);
         mensagemSucesso();
         inicializar();
-      } on DioError catch (ex) {
+      } on DioException catch (ex) {
         datatype!.dados = [];
         if ((ex.response?.statusCode ?? -1) == 401) {
           mensagemAviso(aviso: "Sessão expirada!Favor fazer novo login!");

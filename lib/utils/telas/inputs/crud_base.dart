@@ -14,19 +14,24 @@ class Tuples {
   final String nome;
   final IconData icon;
   final List<IInput> inputs;
-  Tuples({required this.nome, required this.icon, required this.inputs});
+  Tuples({
+    required this.nome,
+    required this.icon,
+    required this.inputs,
+  });
 }
 
 ///Cria Um Form basico
 ///Esta implementado dois tipos de Forms. Com e sem steps (Etapas)
 ///__tuples__. Cria inputs com steps;
 ///__Inputs__ Lista de Inputs sem steps.
-class CrudBase<Store extends StoreCrudBase> extends StatefulWidget {
+class CrudBase<CrudStore extends StoreCrudBase> extends StatefulWidget {
   final List<Tuples>? tuples;
   final List<IInput>? inputs;
   final double width;
   final double height;
   final String title;
+
   const CrudBase(
       {Key? key,
       required this.title,
@@ -52,13 +57,13 @@ class CrudBase<Store extends StoreCrudBase> extends StatefulWidget {
   */
 
   @override
-  State<CrudBase> createState() => _CrudBaseState<Store>();
+  State<CrudBase> createState() => _CrudBaseState<CrudStore>();
 }
 
-class _CrudBaseState<Store extends StoreCrudBase> extends State<CrudBase> {
+class _CrudBaseState<CrudStore extends StoreCrudBase> extends State<CrudBase> {
   final _formKey = GlobalKey<FormState>();
 
-  final store = Modular.get<Store>();
+  CrudStore store = Modular.get();
   Widget _getInputs() {
     if (widget.inputs != null) {
       for (int i = 0; i < widget.inputs!.length; i++) {
@@ -104,8 +109,8 @@ class _CrudBaseState<Store extends StoreCrudBase> extends State<CrudBase> {
     if (!_formKey.currentState!.validate()) {
       // If the form is valid, display a snackbar. In the real world,
       // you'd often call a server or save the information in a database.
-      Modular.get<Store>()
-          .mensagemAviso(aviso: "Por favor, prencher todos dados obrigatórios");
+      store.mensagemAviso(
+          aviso: "Por favor, prencher todos dados obrigatórios");
       return false;
     }
     return true;
@@ -304,7 +309,7 @@ class _CrudBaseState<Store extends StoreCrudBase> extends State<CrudBase> {
                 ),
               ),
             ),
-            PosicionedMensagem<Store>(
+            PosicionedMensagem<CrudStore>(
               left: isTelaPequena(context) ? null : widget.width - 250,
             )
           ],

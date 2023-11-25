@@ -25,7 +25,7 @@ class Body<Store extends StoreBase> extends StatefulWidget {
 }
 
 class _BodyState<Store extends StoreBase> extends State<Body> {
-  final store = Modular.get<Store>();
+  final store = Modular.get<Store>(key: "tabela");
   final appcontroler = Modular.get<IAppController>();
 
   Color _adjustColorShade(Color color, int amount) {

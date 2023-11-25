@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 
 ///Retorna um padrao de erro
 class PadraoErro {
-  DioError? erroDio;
+  DioException? erroDio;
 
   PadraoErro({this.erroDio});
 

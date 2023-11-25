@@ -82,7 +82,7 @@ abstract class Dados implements DadosMobile {
         name: "editar",
         descricao: "Editar",
         onSelected: () {
-          Modular.get<StoreBase>().editar(id: d['id']);
+          Modular.get<StoreBase>(key: "tabela").editar(id: d['id']);
         },
         // icon: Icon(Icons.edit),
       ),
@@ -91,7 +91,7 @@ abstract class Dados implements DadosMobile {
         iconData: Icons.delete,
         descricao: "Excluir",
         onSelected: () {
-          Modular.get<StoreBase>().delete(id: d['id']);
+          Modular.get<StoreBase>(key: "tabela").delete(id: d['id']);
         },
         // icon: Icon(Icons.delete),
       ),

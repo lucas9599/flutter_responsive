@@ -17,15 +17,19 @@ abstract class TelaBase<Store extends StoreBase> extends StatefulWidget {
   final Widget? Function()? conteudo;
   final String title;
   final List<RotaFiltros>? filtros;
-  const TelaBase({Key? key, this.conteudo, this.title = "Titulo", this.filtros})
-      : super(key: key);
+  const TelaBase({
+    Key? key,
+    this.conteudo,
+    this.title = "Titulo",
+    this.filtros,
+  }) : super(key: key);
 
   @override
   State<TelaBase> createState() => _TelaBaseState<Store>();
 }
 
 class _TelaBaseState<Store extends StoreBase> extends State<TelaBase> {
-  final store = Modular.get<Store>();
+  final store = Modular.get<Store>(key: "tabela");
   final appcontroler = Modular.get<IAppController>();
   Color _adjustColorShade(Color color, int amount) {
     assert(amount >= -255 && amount <= 255);

@@ -43,7 +43,7 @@ mixin Mensagens {
             } else {
               return erro();
             }
-          } on DioError catch (ex) {
+          } on DioException catch (ex) {
             if ((ex.response?.statusCode ?? -1) == 401) {
               return erro(motivo: "Sessão expirada!Favor fazer novo login!");
             } else {

@@ -7,7 +7,7 @@ import 'package:flutter_responsive_template/utils/telas/menus/menu_espandido.dar
 String nomesistema = "";
 
 List<MenuExpandido> menus = [];
-
+Widget? logosecundario;
 String ipservidor = "127.0.0.1";
 String portaservidor = "8080";
 String fundo = "imagens/fundo_login.jpg";

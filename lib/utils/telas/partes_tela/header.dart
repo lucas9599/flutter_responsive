@@ -79,14 +79,14 @@ class _HeaderState extends State<Header> {
           PopupMenuButton<int>(
             onSelected: (value) {
               if (value == 0) {
-                Modular.to.pushNamed("/usuario/");
+                Modular.to.navigate("/usuario/");
                 rotaatual = "";
               } else if (value == 1) {
                 Modular.to.navigate("/");
                 rotaatual = "";
               }
               if (value == 2) {
-                Modular.to.pushNamed("/perfis/");
+                Modular.to.navigate("/perfis/");
                 rotaatual = "";
               }
             },

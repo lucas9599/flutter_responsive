@@ -18,6 +18,7 @@ abstract class _StoreCrudBaseBase extends Conexao with Store {
   final Map<String, dynamic> dados = {};
   List<IInput>? inputs;
 
+  ///pesquisa input pelo nome
   IInput? getInputForName(String name) {
     if (inputs != null) {
       for (int i = 0; i < inputs!.length; i++) {
@@ -52,13 +53,14 @@ abstract class _StoreCrudBaseBase extends Conexao with Store {
     }
   }
 
+  ///Salva os dados
   salvar(Map<String, dynamic> dados) async {
     try {
       await repository.save(dados);
-      Modular.get<StoreBase>().inicializar();
-      Modular.get<StoreBase>().mensagemSucesso();
+      Modular.get<StoreBase>(key: "tabela").inicializar();
+      Modular.get<StoreBase>(key: "tabela").mensagemSucesso();
       Modular.to.pop();
-    } on DioError catch (ex) {
+    } on DioException catch (ex) {
       if ((ex.response!.statusCode ?? -1) == 401) {
         mensagemAviso(aviso: "Sessão expirada!favor fazer login novamente");
       } else {

@@ -160,8 +160,7 @@ class LoginPageState extends State<LoginPage> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          const Icon(Icons.school,
-                                              color: Colors.white, size: 50),
+                                          logosecundario ?? Container(),
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,

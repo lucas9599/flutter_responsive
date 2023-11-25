@@ -5,8 +5,8 @@ class ErrorConexao implements Exception {
 
   ErrorConexao({required this.exception});
   String get mensagem {
-    if (exception is DioError) {
-      DioError d = (exception as DioError);
+    if (exception is DioException) {
+      DioException d = (exception as DioException);
       if ((d.response?.statusCode ?? 0) == 401) {
         return d.response?.data['message'] ?? "Erro ao enviar dados";
       } else if ((d.response?.statusCode ?? 0) == 900) {

@@ -24,13 +24,13 @@ class _CardOpcoesState extends State<CardOpcoes> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: widget.editar
-          ? () => Modular.get<StoreBase>().editar(id: widget.id)
+          ? () => Modular.get<StoreBase>(key: "tabela").editar(id: widget.id)
           : null,
       child: Dismissible(
         background: Container(color: Colors.red),
         key: Key(widget.id.toString()),
         onDismissed: widget.excluir
-            ? (direction) => Modular.get<StoreBase>()
+            ? (direction) => Modular.get<StoreBase>(key: "tabela")
                 .delete(id: widget.id, confirmacao: false)
             : null,
         confirmDismiss: widget.excluir
