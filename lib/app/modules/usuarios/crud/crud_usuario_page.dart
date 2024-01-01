@@ -4,7 +4,6 @@ import 'package:flutter_responsive_template/utils/filtros/herdados/filtrar_perfi
 import 'package:flutter_responsive_template/utils/telas/inputs/crud_base.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_checkbox.dart';
-import 'package:flutter_responsive_template/utils/telas/inputs/input_dados.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_foto.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_incolumn.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_inline.dart';
