@@ -60,3 +60,6 @@
 
 ## 1.1.16
 * Novo input. O InputDados
+
+## 1.1.17
+* Correção do Input Dados

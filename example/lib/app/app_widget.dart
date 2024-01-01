@@ -9,6 +9,7 @@ class AppWidget extends StatelessWidget {
       title: 'Exemplo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        useMaterial3: false,
         primaryColor: Colors.indigo,
         iconTheme: const IconThemeData(color: Colors.white),
         dataTableTheme: DataTableThemeData(

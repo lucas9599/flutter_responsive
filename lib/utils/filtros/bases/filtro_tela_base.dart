@@ -80,55 +80,59 @@ class _FiltroTelaBaseState extends State<FiltroTelaBase> {
             width: !isTelaPequena(context) ? 500 : null,
             child: Scaffold(
               appBar: AppBar(
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  foregroundColor: Theme.of(context).colorScheme.onPrimary,
                   title: Row(
-                children: [
-                  Text(widget.titulo),
-                  Expanded(child: Container()),
-                  Visibility(
-                    visible: (widget.rotacrud ?? "").isNotEmpty
-                        ? (usuarioLogado?.admin ?? false)
-                            ? true
-                            : usuarioLogado?.permissoes?[
-                                        widget.rotacrud?.replaceAll("/", "")]
-                                    ?['permissoes']?["incluir"]?['ativado'] ??
-                                false
-                        : false,
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                        _adjustColorShade(
-                            Theme.of(context).colorScheme.primary, -70),
-                      )),
-                      onPressed: () {
-                        widget.controller.atualizar();
-                      },
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.add,
-                            color: Theme.of(context).colorScheme.onPrimary,
-                          ),
-                          Container(
-                            padding: const EdgeInsets.only(bottom: 3),
-                            child: Text(
-                              "Novo",
-                              style: TextStyle(
+                    children: [
+                      Text(widget.titulo),
+                      Expanded(child: Container()),
+                      Visibility(
+                        visible: (widget.rotacrud ?? "").isNotEmpty
+                            ? (usuarioLogado?.admin ?? false)
+                                ? true
+                                : usuarioLogado?.permissoes?[widget.rotacrud
+                                                ?.replaceAll("/", "")]
+                                            ?['permissoes']?["incluir"]
+                                        ?['ativado'] ??
+                                    false
+                            : false,
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                            _adjustColorShade(
+                                Theme.of(context).colorScheme.primary, -70),
+                          )),
+                          onPressed: () {
+                            widget.controller.atualizar();
+                          },
+                          child: Column(
+                            children: [
+                              Icon(
+                                Icons.add,
                                 color: Theme.of(context).colorScheme.onPrimary,
-                                fontSize: 8,
                               ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              )),
+                              Container(
+                                padding: const EdgeInsets.only(bottom: 3),
+                                child: Text(
+                                  "Novo",
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.onPrimary,
+                                    fontSize: 8,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  )),
               body: Observer(
                 builder: (context) => Column(
                   children: [
                     Container(
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).colorScheme.primary,
                       padding: const EdgeInsets.only(
                           left: 20, right: 20, top: 10, bottom: 10),
                       child: widget.controller.pesquisa,

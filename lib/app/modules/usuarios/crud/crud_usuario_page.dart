@@ -4,6 +4,7 @@ import 'package:flutter_responsive_template/utils/filtros/herdados/filtrar_perfi
 import 'package:flutter_responsive_template/utils/telas/inputs/crud_base.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_checkbox.dart';
+import 'package:flutter_responsive_template/utils/telas/inputs/input_dados.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_foto.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_incolumn.dart';
 import 'package:flutter_responsive_template/utils/telas/inputs/input_inline.dart';
@@ -54,6 +55,27 @@ class CrudUsuarioPage extends CrudBase<CrudUsuarioStore> {
               obrigatorio: true,
               telaPesquisa: FiltrarPerfil(isLookup: true),
             ),
+            /*
+            InputDados(
+              name: "dados",
+              label: "Ddos",
+              linhas: (dados) => [
+                DataCell(
+                  Text(dados['perfil']['id'].toString()),
+                ),
+                DataCell(Text(dados['perfil']['descricao']))
+              ],
+              identificador: ((dados) => dados['perfil']['id']),
+              input: InputLookup(
+                name: "perfil",
+                label: "Perfil",
+                telaPesquisa: FiltrarPerfil(isLookup: true),
+              ),
+              colunas: () => [
+                const DataColumn(label: Text("ID")),
+                const DataColumn(label: Text("Descricao"))
+              ],
+            )*/
           ],
           title: "Usuários",
           height: 700,
