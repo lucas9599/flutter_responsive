@@ -1,6 +1,7 @@
 import 'package:mobx/mobx.dart';
 part 'input_dados_controller.g.dart';
 
+// ignore: library_private_types_in_public_api
 class InputDadosController = _InputDadosControllerBase
     with _$InputDadosController;
 
