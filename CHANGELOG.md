@@ -63,3 +63,6 @@
 
 ## 1.1.17
 * Correção do Input Dados
+
+## 1.1.18
+* Correção do filtros e da ordenação Nula

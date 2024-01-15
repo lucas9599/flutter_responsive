@@ -11,5 +11,6 @@ class UsuariosPage extends TelaBase<UsuariosStore> {
             title: "Manutenção de Usuários",
             filtros: [
               RotaFiltros(label: "Descrição", rota: "filtrardescricao"),
+              RotaFiltros(label: "Descrição", rota: "filtrardescricao"),
             ]);
 }

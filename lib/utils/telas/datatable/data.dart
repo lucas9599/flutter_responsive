@@ -27,8 +27,8 @@ abstract class Dados implements DadosMobile {
   ordernar({String campo = "descricao", String? sublist, required int index}) {
     Modular.get<IAppController>().sorting(
         ordernador: () => dados!.sort((a, b) => _comparar(
-            (sublist != null ? a[campo][sublist] : a[campo]),
-            (sublist != null ? b[campo][sublist] : b[campo]),
+            (sublist != null ? (a[campo]?[sublist]??"") : a[campo]),
+            (sublist != null ? (b[campo]?[sublist]??"") : b[campo]),
             Modular.get<IAppController>().crescente)),
         index: index);
   }

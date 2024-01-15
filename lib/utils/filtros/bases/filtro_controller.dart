@@ -147,7 +147,7 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     for (int i = 0; i < selecionados.length; i++) {
       filtro.valor.add(int.parse(dados[selecionados[i]].name));
     }
-    StoreBase store = Modular.get<StoreBase>();
+    StoreBase store = Modular.get<StoreBase>(key: "tabela");
 
     if (filtro.valor.isNotEmpty) {
       store.filtros.addAll({keyMap: filtro});
