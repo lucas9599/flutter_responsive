@@ -66,3 +66,6 @@
 
 ## 1.1.18
 * Correção do filtros e da ordenação Nula
+
+## 1.1.19
+* Atualização de pacotes
