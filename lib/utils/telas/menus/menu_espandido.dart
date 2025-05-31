@@ -1,4 +1,5 @@
 import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/color_utils.dart';
 import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
 import 'package:flutter_responsive_template/utils/telas/menus/menu.dart';
 import 'package:flutter_responsive_template/utils/telas/menus/submenumobile.dart';
@@ -21,16 +22,6 @@ class MenuExpandido extends StatefulWidget {
 
   ///identifica a posição do menu mobile
   final int? indexMenu;
-  Color _adjustColorShade(Color color, int amount) {
-    assert(amount >= -255 && amount <= 255);
-
-    int red = color.red + amount;
-    int green = color.green + amount;
-    int blue = color.blue + amount;
-
-    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
-        blue.clamp(0, 255));
-  }
 
   bool get isVisible {
     if (submenu != null) {
@@ -60,7 +51,7 @@ class MenuExpandido extends StatefulWidget {
       : super(key: key);
   final ControllerMenu controller = ControllerMenu();
 
-  abriMenuMobile(context) {
+  void abriMenuMobile(BuildContext context) {
     if (indexMenu != null) {
       Modular.get<IAppController>().indexMenuTemporario = indexMenu!;
     }
@@ -73,7 +64,7 @@ class MenuExpandido extends StatefulWidget {
               : Theme.of(context).colorScheme.secondary;
           return Container(
             decoration: BoxDecoration(
-              color: _adjustColorShade(cor, -100),
+              color: ColorUtils.adjustColorShade(cor, -100),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
@@ -102,7 +93,7 @@ class _MenuExpandidoState extends State<MenuExpandido> {
     return Container(child: isTelaPequena(context) ? _mobile() : _desktop());
   }
 
-  _mobile() {
+  Visibility _mobile() {
     final onSecundary = mobilePrimary
         ? Theme.of(context).colorScheme.onPrimary
         : Theme.of(context).colorScheme.onSecondary;
@@ -133,7 +124,7 @@ class _MenuExpandidoState extends State<MenuExpandido> {
             }));
   }
 
-  _desktop() {
+  Visibility _desktop() {
     final normal = Theme.of(context).colorScheme.onSecondary;
 
     return Visibility(
@@ -151,7 +142,7 @@ class _MenuExpandidoState extends State<MenuExpandido> {
               Observer(
                 builder: (context) => Container(
                   color: widget.controller.espandido
-                      ? widget._adjustColorShade(
+                      ? ColorUtils.adjustColorShade(
                           Theme.of(context).colorScheme.secondary, -30)
                       : null,
                   child: ListTile(

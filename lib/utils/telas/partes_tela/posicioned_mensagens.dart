@@ -42,7 +42,7 @@ class _PosicionedMensagemState<ConexaoBase extends Conexao>
                       : Colors.green,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.5),
+                  color: Colors.black.withValues(alpha: 0.5),
                   spreadRadius: 5,
                   blurRadius: 5,
                   offset: const Offset(2, 2), // changes position of shadow

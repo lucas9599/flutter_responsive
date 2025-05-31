@@ -1,4 +1,5 @@
 import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/color_utils.dart';
 import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
 import 'package:flutter_responsive_template/utils/observables/carregando_widget.dart';
 import 'package:flutter_responsive_template/utils/observables/conexao.dart';
@@ -28,18 +29,7 @@ class _BodyState<Store extends StoreBase> extends State<Body> {
   final store = Modular.get<Store>(key: "tabela");
   final appcontroler = Modular.get<IAppController>();
 
-  Color _adjustColorShade(Color color, int amount) {
-    assert(amount >= -255 && amount <= 255);
-
-    int red = color.red + amount;
-    int green = color.green + amount;
-    int blue = color.blue + amount;
-
-    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
-        blue.clamp(0, 255));
-  }
-
-  Widget _chips(context, int tipo) {
+  Widget _chips(BuildContext context, int tipo) {
     Widget chips = Observer(
       builder: (context) => Row(
         mainAxisSize: MainAxisSize.max,
@@ -105,8 +95,8 @@ class _BodyState<Store extends StoreBase> extends State<Body> {
                                     : true,
                                 child: ElevatedButton.icon(
                                   style: ButtonStyle(
-                                      backgroundColor: MaterialStatePropertyAll(
-                                          _adjustColorShade(
+                                      backgroundColor: WidgetStatePropertyAll(
+                                          ColorUtils.adjustColorShade(
                                               Theme.of(context)
                                                   .colorScheme
                                                   .primary,

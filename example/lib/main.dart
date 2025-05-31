@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_responsive_template/flutter_responsive.dart';
 import 'package:flutter_responsive_template/utils/telas/menus/menu.dart';
 import 'package:flutter_responsive_template/utils/telas/menus/menu_espandido.dart';
-import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter_responsive_template/constantes.dart';
 import 'app/app_module.dart';
 import 'app/app_widget.dart';

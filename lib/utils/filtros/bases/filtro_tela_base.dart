@@ -1,6 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/color_utils.dart';
 import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart';
 import 'package:flutter_responsive_template/utils/filtros/bases/filtro_controller.dart';
 import 'package:flutter_responsive_template/utils/observables/carregando_widget.dart';
@@ -58,17 +59,6 @@ class FiltroTelaBase extends StatefulWidget {
 }
 
 class _FiltroTelaBaseState extends State<FiltroTelaBase> {
-  Color _adjustColorShade(Color color, int amount) {
-    assert(amount >= -255 && amount <= 255);
-
-    int red = color.red + amount;
-    int green = color.green + amount;
-    int blue = color.blue + amount;
-
-    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
-        blue.clamp(0, 255));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -98,8 +88,8 @@ class _FiltroTelaBaseState extends State<FiltroTelaBase> {
                             : false,
                         child: ElevatedButton(
                           style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                            _adjustColorShade(
+                              backgroundColor: WidgetStatePropertyAll<Color>(
+                            ColorUtils.adjustColorShade(
                                 Theme.of(context).colorScheme.primary, -70),
                           )),
                           onPressed: () {

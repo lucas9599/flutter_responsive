@@ -10,7 +10,7 @@ abstract class _InputDadosControllerBase with Store {
       <Map<String, dynamic>>[].asObservable();
   bool inicializado = false;
 
-  inicializar(Map<String, dynamic> values, String name) {
+  void inicializar(Map<String, dynamic> values, String name) {
     if (values[name] != null) {
       List<Map<String, dynamic>> a =
           List<Map<String, dynamic>>.from(values[name]);

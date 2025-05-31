@@ -10,7 +10,7 @@ abstract class _ControllerMenuBase with Store {
   @observable
   bool espandido = true;
   @action
-  selecionar() {
+  void selecionar() {
     espandido = !espandido;
   }
 }

@@ -18,7 +18,7 @@ class InputLookup extends StatefulWidget implements IInput {
   final List<FiltroBase> filtros = [];
   final Map<String, dynamic>? valorinicial;
   final Function(String valor)? function;
-  setFiltro(List<FiltroBase> filtros) {
+  void setFiltro(List<FiltroBase> filtros) {
     this.filtros.clear();
     this.filtros.addAll(filtros);
   }
@@ -114,7 +114,7 @@ class _InputLookupState extends State<InputLookup> {
                   dynamic resposta = await Modular.to.push(
                     PageRouteBuilder(
                         opaque: false,
-                        barrierColor: Colors.black.withOpacity(0.5),
+                        barrierColor: Colors.black.withValues(alpha: 0.5),
                         pageBuilder: (context, animation, secondaryAnimation) {
                           widget.telaPesquisa.controller
                               .inicializar(filtros: widget.filtros);

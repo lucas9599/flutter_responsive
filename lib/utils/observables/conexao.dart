@@ -21,7 +21,7 @@ abstract class _ConexaoBase with Store {
   @observable
   StatusConexao conexao = StatusConexao.carregando;
 
-  mensagemSucesso(
+  Future<void> mensagemSucesso(
       {String sucesso = "Sucesso, operação realizada com sucesso!"}) async {
     porcentagemmensagem = 0;
     mensegem = Mensagem.sucesso;
@@ -33,7 +33,7 @@ abstract class _ConexaoBase with Store {
     mensegem = Mensagem.semmensagem;
   }
 
-  mensagemError(
+  Future<void> mensagemError(
       {String erro = "Erro, operação não pode ser realizada!"}) async {
     porcentagemmensagem = 0;
     mensegem = Mensagem.erro;
@@ -45,7 +45,7 @@ abstract class _ConexaoBase with Store {
     mensegem = Mensagem.semmensagem;
   }
 
-  mensagemAviso({String aviso = "Atenção"}) async {
+  Future<void> mensagemAviso({String aviso = "Atenção"}) async {
     porcentagemmensagem = 0;
     mensegem = Mensagem.aviso;
     textoMensagem = aviso;

@@ -1,5 +1,6 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/color_utils.dart';
 import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
 import 'package:flutter_responsive_template/utils/telas/menus/windows_buttons.dart';
 import 'package:flutter/material.dart';
@@ -13,17 +14,6 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
-  Color _adjustColorShade(Color color, int amount) {
-    assert(amount >= -255 && amount <= 255);
-
-    int red = color.red + amount;
-    int green = color.green + amount;
-    int blue = color.blue + amount;
-
-    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
-        blue.clamp(0, 255));
-  }
-
   @override
   Widget build(BuildContext context) {
     final color = Theme.of(context).primaryColor;
@@ -31,13 +21,13 @@ class _HeaderState extends State<Header> {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: _adjustColorShade(color, -50),
+            color: ColorUtils.adjustColorShade(color, -50),
             spreadRadius: 10,
             blurRadius: 7,
             offset: const Offset(3, 3), // changes position of shadow
           ),
         ],
-        color: _adjustColorShade(color, -150).withOpacity(0.5),
+        color: ColorUtils.adjustColorShade(color, -150).withValues(alpha: 0.5),
         image: DecorationImage(
           image: AssetImage(
             imagemheader,

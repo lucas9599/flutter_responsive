@@ -7,7 +7,7 @@ abstract class IInput extends Widget {
 
   ///Retorna o map com a chave sendo o get Name
   Map<String, dynamic> getValue();
-  clean();
+  void clean();
 
   ///Recebe um map e preencher o input.
   ///Pesquise o valor de acordo com a key do metood get name

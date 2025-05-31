@@ -42,7 +42,7 @@ class _InputFotoState extends State<InputFoto> {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Theme.of(context).colorScheme.primary),
-          color: Theme.of(context).colorScheme.primary.withOpacity(0.1)),
+          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1)),
       margin: const EdgeInsets.all(5),
       padding: const EdgeInsets.all(5),
       child: Column(

@@ -69,3 +69,5 @@
 
 ## 1.1.19
 * Atualização de pacotes
+## 1.1.20
+* Atualização das dependencias 

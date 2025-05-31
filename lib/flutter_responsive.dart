@@ -3,6 +3,10 @@ library flutter_responsive;
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_template/constantes.dart';
 import 'package:flutter_responsive_template/utils/telas/menus/menu_espandido.dart';
+export 'package:flutter_modular/flutter_modular.dart';
+export 'package:flutter_mobx/flutter_mobx.dart';
+export 'package:flutter_localizations/flutter_localizations.dart';
+export 'package:bitsdojo_window/bitsdojo_window.dart';
 
 class FlutterResposive {
   FlutterResposive(

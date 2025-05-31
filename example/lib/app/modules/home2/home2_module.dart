@@ -1,6 +1,6 @@
 import 'package:example/app/modules/home2/home2_Page.dart';
 import 'package:example/app/modules/home2/home2_store.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_responsive_template/flutter_responsive.dart';
 
 class Home2Module extends Module {
   @override

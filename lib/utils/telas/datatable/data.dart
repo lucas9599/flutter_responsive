@@ -10,7 +10,7 @@ import 'package:data_table_2/data_table_2.dart';
 
 ///Classe para popular os datatables. Faça a herança desta classe.
 abstract class Dados implements DadosMobile {
-  _comparar(a, b, crescente) {
+  int _comparar(dynamic a, dynamic b, crescente) {
     if ((a is num && b is num)) {
       return crescente ? a.compareTo(b) : b.compareTo(a);
     } else {
@@ -24,11 +24,12 @@ abstract class Dados implements DadosMobile {
   ///
   ///__campo__: Seleciona o campo a ser ordenado em uma sublist. (key retorna um outro Map.)
   ///__sublist__: Indica que o campo a ser ordenado é um map
-  ordernar({String campo = "descricao", String? sublist, required int index}) {
+  void ordernar(
+      {String campo = "descricao", String? sublist, required int index}) {
     Modular.get<IAppController>().sorting(
         ordernador: () => dados!.sort((a, b) => _comparar(
-            (sublist != null ? (a[campo]?[sublist]??"") : a[campo]),
-            (sublist != null ? (b[campo]?[sublist]??"") : b[campo]),
+            (sublist != null ? (a[campo]?[sublist] ?? "") : a[campo]),
+            (sublist != null ? (b[campo]?[sublist] ?? "") : b[campo]),
             Modular.get<IAppController>().crescente)),
         index: index);
   }

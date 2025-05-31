@@ -1,4 +1,4 @@
-// ignore_for_file: unused_element, library_private_types_in_public_api
+// ignore_for_file: unused_element, library_private_types_in_public_api, unused_element_parameter
 
 import 'package:flutter_responsive_template/utils/filtros/bases/filtro_base.dart';
 import 'package:flutter_responsive_template/utils/observables/conexao.dart';
@@ -28,7 +28,7 @@ abstract class _StoreBaseBase extends Conexao with Store, Mensagens {
     inicializar();
   }
 
-  imprimirListagem() async {
+  Future<void> imprimirListagem() async {
     try {
       conexao = StatusConexao.carregando;
 
@@ -41,7 +41,7 @@ abstract class _StoreBaseBase extends Conexao with Store, Mensagens {
     }
   }
 
-  inicializar() async {
+  Future<void> inicializar() async {
     try {
       conexao = StatusConexao.carregando;
       if (repository != null && datatype != null) {
@@ -65,16 +65,16 @@ abstract class _StoreBaseBase extends Conexao with Store, Mensagens {
     }
   }
 
-  editar({required int id}) async {
+  Future<void> editar({required int id}) async {
     Modular.to.pushNamed("crud/", arguments: id);
   }
 
-  removerChips(FiltroBase e) {
+  void removerChips(FiltroBase e) {
     filtros.removeWhere((key, value) => value == e);
     inicializar();
   }
 
-  delete({required int id, bool confirmacao = true}) async {
+  Future<void> delete({required int id, bool confirmacao = true}) async {
     dynamic resposta = confirmacao
         ? await openDialogoConfirmacao(mensagem: "Excluir registro?")
         : true;
@@ -99,7 +99,7 @@ abstract class _StoreBaseBase extends Conexao with Store, Mensagens {
     }
   }
 
-  filtrar(RotaFiltros value) async {
+  Future<void> filtrar(RotaFiltros value) async {
     final resposta = await Modular.to
         .pushNamed((value.isInAppModule ? "/" : "") + value.rota);
     if (resposta != null) {

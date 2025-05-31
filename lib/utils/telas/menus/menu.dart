@@ -2,6 +2,7 @@ import 'package:flutter_responsive_template/constantes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_responsive_template/utils/color_utils.dart';
 import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
 
 ///Menu componente do MenuExpandido. Verifica se a rota se tem permissão de visualizar.
@@ -26,22 +27,11 @@ class Menu extends StatelessWidget {
       this.mapeado = true})
       : super(key: key);
 
-  Color _adjustColorShade(Color color, int amount) {
-    assert(amount >= -255 && amount <= 255);
-
-    int red = color.red + amount;
-    int green = color.green + amount;
-    int blue = color.blue + amount;
-
-    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
-        blue.clamp(0, 255));
-  }
-
   @override
   Widget build(BuildContext context) {
     bool telapequena = isTelaPequena(context);
     final primary = telapequena ? mobilePrimary : false;
-    final corForte = _adjustColorShade(
+    final corForte = ColorUtils.adjustColorShade(
         primary
             ? Theme.of(context).colorScheme.primary
             : Theme.of(context).colorScheme.secondary,

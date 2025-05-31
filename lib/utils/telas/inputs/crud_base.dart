@@ -105,7 +105,7 @@ class _CrudBaseState<CrudStore extends StoreCrudBase> extends State<CrudBase> {
   }
 
   ///Valida um form
-  validar() {
+  bool validar() {
     if (!_formKey.currentState!.validate()) {
       // If the form is valid, display a snackbar. In the real world,
       // you'd often call a server or save the information in a database.
@@ -318,7 +318,7 @@ class _CrudBaseState<CrudStore extends StoreCrudBase> extends State<CrudBase> {
     );
   }
 
-  _salvar() {
+  void _salvar() {
     Map<String, dynamic> dados = {};
     for (var element in this.store.inputs!) {
       dados.addAll(element.getValue());

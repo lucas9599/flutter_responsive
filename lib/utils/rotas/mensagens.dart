@@ -15,7 +15,7 @@ import 'package:dio/dio.dart';
 ///Mensagens padrões do package.
 mixin Mensagens {
   ///erro no carregamento de um pdf
-  erro({String motivo = "Erro, ao carregar dados"}) {
+  Future<Uint8List> erro({String motivo = "Erro, ao carregar dados"}) {
     final doc = pw.Document();
 
     doc.addPage(
@@ -32,8 +32,8 @@ mixin Mensagens {
   }
 
   ///visualiza o PDF
-  visualizadorDePDF(Future<Uint8List> Function() gerar) async {
-    await openMensagem(
+  Future<void> visualizadorDePDF(Future<Uint8List> Function() gerar) async {
+    openMensagem(
       PdfPreview(
         build: (format) async {
           try {
@@ -60,11 +60,11 @@ mixin Mensagens {
   }
 
   ///abre um pop-up com o widget
-  openMensagem(Widget mensagem, {double width = 500, double height = 500}) {
+  void openMensagem(Widget mensagem, {double width = 500, double height = 500}) {
     Modular.to.push(
       PageRouteBuilder(
         opaque: false,
-        barrierColor: Colors.black.withOpacity(0.5),
+        barrierColor: Colors.black.withValues(alpha: 0.5),
         pageBuilder: (context, animation, secondaryAnimation) => AlertDialog(
           insetPadding: const EdgeInsets.all(0),
           contentPadding: const EdgeInsets.all(0),
@@ -85,7 +85,7 @@ mixin Mensagens {
   }
 
   ///dialogo de confirmação
-  openDialogoConfirmacao(
+  Future openDialogoConfirmacao(
       {required String mensagem,
       double width = 300,
       double height = 200}) async {
@@ -131,7 +131,7 @@ mixin Mensagens {
                         },
                         style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.red)),
+                                WidgetStatePropertyAll<Color>(Colors.red)),
                         icon: const Icon(Icons.cancel),
                         label: const Text("Não"),
                       ),

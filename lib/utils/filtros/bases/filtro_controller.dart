@@ -38,7 +38,7 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     );
   }
 
-  selecionar(int index) {
+  void selecionar(int index) {
     if (isLookup) {
       dados[index].controller.selecionado = false;
       Modular.to.pop({
@@ -56,13 +56,13 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     }
   }
 
-  desmarcar(int index) {
+  void desmarcar(int index) {
     dados[index].controller.selecionado = false;
     selecionados.removeWhere((element) => element == index);
   }
 
   late Input pesquisa;
-  inicializarVariaveis(
+  void inicializarVariaveis(
       {required String endpoint,
       required String campodescricao,
       required FiltroBase filtro,
@@ -85,7 +85,7 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     }
   }
 
-  pesquisarid({required List<int> valor}) async {
+  Future pesquisarid({required List<int> valor}) async {
     Repository repository =
         Repository(endpoint, campoDescricao: campodescricao, tipoApi: tipoApi);
     List<FiltroBase> f = [FiltroBase(valor: valor, coluna: "id")];
@@ -98,14 +98,14 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     }
   }
 
-  atualizar() async {
+  Future<void> atualizar() async {
     await Modular.to.pushNamed(
         "$rotacrud${rotacrud!.endsWith("/") ? "" : "/"}crud",
         arguments: -1);
     inicializar(filtros: filtros);
   }
 
-  inicializar({
+  Future<void> inicializar({
     List<FiltroBase>? filtros,
   }) async {
     try {
@@ -134,7 +134,7 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     }
   }
 
-  pesquisar(String descricao) {
+  void pesquisar(String descricao) {
     for (var element in dados) {
       element.controller.visible =
           element.label.toUpperCase().contains(descricao.toUpperCase()) ||
@@ -142,7 +142,7 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     }
   }
 
-  filtrar() {
+  void filtrar() {
     filtro.valor.clear();
     for (int i = 0; i < selecionados.length; i++) {
       filtro.valor.add(int.parse(dados[selecionados[i]].name));

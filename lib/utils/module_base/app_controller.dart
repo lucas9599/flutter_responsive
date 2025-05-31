@@ -34,7 +34,7 @@ abstract class _IAppControllerBase extends Conexao with Store {
   Sorting ordenacao = Sorting.normal;
 
   @action
-  sorting({required Function ordernador, required int index}) {
+  void sorting({required Function ordernador, required int index}) {
     crescente = !crescente;
     indexsort = index;
     ordenacao = Sorting.ordenando;
@@ -43,7 +43,7 @@ abstract class _IAppControllerBase extends Conexao with Store {
   }
 
   @action
-  escondermenu() {
+  void escondermenu() {
     esconder = !esconder;
   }
 }

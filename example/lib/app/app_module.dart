@@ -1,8 +1,8 @@
 import 'package:example/app/modules/home2/home2_module.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_responsive_template/app/modules/login/login_module.dart';
 import 'package:flutter_responsive_template/app/modules/usuarios/usuarios_module.dart';
 import 'package:flutter_responsive_template/app/modules/perfis/perfis_module.dart';
+import 'package:flutter_responsive_template/flutter_responsive.dart';
 import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
 import 'package:flutter_responsive_template/utils/rotas/custom.dart';
 import 'package:flutter_responsive_template/utils/filtros/herdados/filtro_descricao.dart';

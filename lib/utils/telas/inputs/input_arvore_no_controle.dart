@@ -10,7 +10,7 @@ abstract class _InputArvoreNoControllerBase with Store {
   @observable
   bool selecionado = false;
 
-  mudarestado() {
+  void mudarestado() {
     selecionado = !selecionado;
   }
 }

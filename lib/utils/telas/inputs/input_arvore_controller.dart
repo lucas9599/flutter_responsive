@@ -1,7 +1,7 @@
 ///Controlador de um input no formato de arvore
 class InputArvoreController {
   final Map<String, dynamic> _values = {};
-  add(Map<String, dynamic> values) {
+  void add(Map<String, dynamic> values) {
     _values.clear();
     _values.addAll(values);
   }

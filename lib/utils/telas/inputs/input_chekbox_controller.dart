@@ -8,7 +8,7 @@ class ControllerCheckBox = _ControllerCheckBoxBase with _$ControllerCheckBox;
 abstract class _ControllerCheckBoxBase with Store {
   @observable
   bool selecionado = false;
-  marcarDesmarcar() {
+  void marcarDesmarcar() {
     selecionado = !selecionado;
   }
 

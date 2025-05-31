@@ -1,6 +1,7 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter_responsive_template/app/modules/login/login_store.dart';
 import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/color_utils.dart';
 import 'package:flutter_responsive_template/utils/observables/carregando_widget.dart';
 import 'package:flutter_responsive_template/utils/observables/conexao.dart';
 import 'package:flutter_responsive_template/utils/telas/menus/windows_buttons.dart';
@@ -52,7 +53,7 @@ class LoginPageState extends State<LoginPage> {
                   Expanded(
                     child: Container(
                         decoration: BoxDecoration(
-                          color: _adjustColorShade(color, -200),
+                          color: ColorUtils.adjustColorShade(color, -200),
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             opacity: 0.3,
@@ -120,10 +121,11 @@ class LoginPageState extends State<LoginPage> {
                                                   child: ElevatedButton(
                                                       style: ButtonStyle(
                                                           backgroundColor:
-                                                              MaterialStateProperty.all(
-                                                                  _adjustColorShade(
-                                                                      color,
-                                                                      -200))),
+                                                              WidgetStatePropertyAll(
+                                                                  ColorUtils
+                                                                      .adjustColorShade(
+                                                                          color,
+                                                                          -200))),
                                                       onPressed: () {
                                                         store.login();
                                                       },
@@ -188,7 +190,7 @@ class LoginPageState extends State<LoginPage> {
                                                 ],
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.white
-                                                    .withOpacity(0.9)),
+                                                    .withValues(alpha: 0.9)),
                                           ),
                                           const Divider(
                                             thickness: 1,
@@ -200,7 +202,7 @@ class LoginPageState extends State<LoginPage> {
                                                 fontSize: 17,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.white
-                                                    .withOpacity(0.9)),
+                                                    .withValues(alpha: 0.9)),
                                           ),
                                         ],
                                       ),
@@ -236,16 +238,5 @@ class LoginPageState extends State<LoginPage> {
               ),
       ),
     );
-  }
-
-  Color _adjustColorShade(Color color, int amount) {
-    assert(amount >= -255 && amount <= 255);
-
-    int red = color.red + amount;
-    int green = color.green + amount;
-    int blue = color.blue + amount;
-
-    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
-        blue.clamp(0, 255));
   }
 }

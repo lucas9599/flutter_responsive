@@ -20,7 +20,7 @@ class Custom extends CustomTransition {
                 children: [
                   Expanded(
                     child: Container(
-                      color: Colors.black.withOpacity(0.5),
+                      color: Colors.black.withValues(alpha: 0.5),
                       child: Center(
                         child: p3,
                       ),

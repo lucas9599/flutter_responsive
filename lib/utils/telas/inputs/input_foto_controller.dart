@@ -14,7 +14,7 @@ class InputFotoController = _InputFotoControllerBase with _$InputFotoController;
 abstract class _InputFotoControllerBase with Store {
   @observable
   String foto = "";
-  _decodeImage(Uint8List image) {
+  void _decodeImage(Uint8List image) {
     final a = img.decodeImage(image)!;
     final resize = img.copyResize(
       a,
@@ -26,7 +26,7 @@ abstract class _InputFotoControllerBase with Store {
   }
 
   ///abre imagens e redimenciona para 100 de largura
-  openImagens() async {
+  Future<void> openImagens() async {
     const XTypeGroup typeGroup = XTypeGroup(
       label: 'images',
       extensions: <String>['jpg', 'png'],

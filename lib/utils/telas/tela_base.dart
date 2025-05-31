@@ -1,4 +1,5 @@
 import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/color_utils.dart';
 import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
 import 'package:flutter_responsive_template/utils/telas/extras/scrool.dart';
 import 'package:flutter_responsive_template/utils/telas/menus/menu_lateral.dart';
@@ -31,16 +32,6 @@ abstract class TelaBase<Store extends StoreBase> extends StatefulWidget {
 class _TelaBaseState<Store extends StoreBase> extends State<TelaBase> {
   final store = Modular.get<Store>(key: "tabela");
   final appcontroler = Modular.get<IAppController>();
-  Color _adjustColorShade(Color color, int amount) {
-    assert(amount >= -255 && amount <= 255);
-
-    int red = color.red + amount;
-    int green = color.green + amount;
-    int blue = color.blue + amount;
-
-    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
-        blue.clamp(0, 255));
-  }
 
   Widget _mobile() {
     return Column(
@@ -59,9 +50,9 @@ class _TelaBaseState<Store extends StoreBase> extends State<TelaBase> {
                       child: Container(
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                          color: _adjustColorShade(
+                          color: ColorUtils.adjustColorShade(
                                   Theme.of(context).colorScheme.primary, -150)
-                              .withOpacity(0.5),
+                              .withValues(alpha: 0.5),
                           image: DecorationImage(
                             image: AssetImage(
                               imagemheader,
@@ -125,7 +116,7 @@ class _TelaBaseState<Store extends StoreBase> extends State<TelaBase> {
                 decoration:
                     BoxDecoration(color: Colors.grey.shade200, boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
+                    color: Colors.grey.withValues(alpha: 0.5),
                     spreadRadius: 5,
                     blurRadius: 3,
                     offset: const Offset(1, 1), // changes position of shadow
@@ -150,7 +141,7 @@ class _TelaBaseState<Store extends StoreBase> extends State<TelaBase> {
                             child: Container(
                               padding: const EdgeInsets.all(20),
                               decoration: BoxDecoration(
-                                color: _adjustColorShade(
+                                color: ColorUtils.adjustColorShade(
                                     Theme.of(context).colorScheme.primary,
                                     -120),
                                 image: DecorationImage(
@@ -195,7 +186,8 @@ class _TelaBaseState<Store extends StoreBase> extends State<TelaBase> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _adjustColorShade(Theme.of(context).primaryColor, -200),
+      backgroundColor:
+          ColorUtils.adjustColorShade(Theme.of(context).primaryColor, -200),
       body: SafeArea(
         child: Stack(
           children: [
@@ -209,7 +201,7 @@ class _TelaBaseState<Store extends StoreBase> extends State<TelaBase> {
               builder: (context) => CurvedNavigationBar(
                   buttonBackgroundColor: Theme.of(context).colorScheme.primary,
                   height: 60,
-                  color: _adjustColorShade(
+                  color: ColorUtils.adjustColorShade(
                       Theme.of(context).colorScheme.primary, -100),
                   index: appcontroler.index,
                   backgroundColor: Colors.white,

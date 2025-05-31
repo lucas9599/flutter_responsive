@@ -40,7 +40,7 @@ abstract class _StoreCrudBaseBase extends Conexao with Store {
     inicializar();
   }
 
-  inicializar() async {
+  Future<void> inicializar() async {
     try {
       conexao = StatusConexao.carregando;
       dados.clear();
@@ -54,7 +54,7 @@ abstract class _StoreCrudBaseBase extends Conexao with Store {
   }
 
   ///Salva os dados
-  salvar(Map<String, dynamic> dados) async {
+  Future<void> salvar(Map<String, dynamic> dados) async {
     try {
       await repository.save(dados);
       Modular.get<StoreBase>(key: "tabela").inicializar();

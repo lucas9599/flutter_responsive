@@ -26,7 +26,7 @@ abstract class _LoginStoreBase extends Conexao with Store, Mensagens {
   final ip = Input(name: "ip", label: "Servidor");
   final porta = Input(name: "porta", label: "Porta");
 
-  openConfiguracao() {
+  void openConfiguracao() {
     ip.controller.text = ipservidor;
     porta.controller.text = portaservidor;
     openMensagem(
@@ -98,7 +98,7 @@ abstract class _LoginStoreBase extends Conexao with Store, Mensagens {
     label: "Salvar email e senha",
   );
 
-  inicializar() async {
+  Future<void> inicializar() async {
     conexao = StatusConexao.carregando;
     final config = await Config.getConfiguracao();
     ipservidor = config?['ip'] ?? "127.0.0.1";

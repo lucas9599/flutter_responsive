@@ -20,7 +20,7 @@ abstract class _FiltroTextFormControllerBase with Store {
 
   late FiltroBase filtro;
   late String campodescricao;
-  inicializarVariaveis(
+  void inicializarVariaveis(
       {required String campodescricao,
       required FiltroBase filtro,
       required InputType inputType,
@@ -58,9 +58,11 @@ abstract class _FiltroTextFormControllerBase with Store {
   String _pegarValor(String valor) {
     if (input.inputType == InputType.date) {
       List value = valor.split("-");
-      return value.length == 3
-          ? value[2] + "/" + value[1] + "/" + value[0]
-          : "";
+      if (value.length == 3) {
+        return "${value[2]}/${value[1]}/${value[0]}";
+      } else {
+        return "";
+      }
     }
     return valor;
   }
@@ -71,7 +73,7 @@ abstract class _FiltroTextFormControllerBase with Store {
       if (i.inputType == InputType.date) {
         if (i.validar()) {
           List value = i.value.split("/");
-          s = value[2] + "-" + value[1] + "-" + value[0];
+          s = "${value[2]}-${value[1]}-${value[0]}";
         }
       } else {
         s = i.value;
@@ -84,7 +86,7 @@ abstract class _FiltroTextFormControllerBase with Store {
     return false;
   }
 
-  filtrar() {
+  void filtrar() {
     StoreBase store = Modular.get<StoreBase>(key: "tabela");
 
     if (input.value.isNotEmpty && (input2?.value.isNotEmpty ?? true)) {

@@ -1,4 +1,4 @@
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_responsive_template/flutter_responsive.dart';
 import '../home/home_store.dart';
 
 import 'home_page.dart';

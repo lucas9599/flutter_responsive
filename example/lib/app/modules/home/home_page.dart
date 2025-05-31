@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_responsive_template/utils/telas/tela_base.dart';
 
 class HomePage extends TelaBase<HomeStore> {
-  HomePage()
+  HomePage({Key? key})
       : super(
+          key: key,
           title: "Home",
           conteudo: () {
             return Container();

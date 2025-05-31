@@ -64,7 +64,7 @@ class InputComboBox extends StatefulWidget implements IInput {
     };
   }
 
-  contemValor() {
+  bool contemValor() {
     for (int i = 0; i < items.length; i++) {
       if (items[i]['value'].toString() == controller.valor) {
         return true;
@@ -83,7 +83,7 @@ class InputComboBox extends StatefulWidget implements IInput {
   @override
   String get value => controller.valor ?? "";
 
-  setFiltro(List<FiltroBase> filtros) {
+  void setFiltro(List<FiltroBase> filtros) {
     filtro.clear();
     filtro.addAll(filtros);
     controller.valor = null;
@@ -93,7 +93,7 @@ class InputComboBox extends StatefulWidget implements IInput {
   final ObservableList<Map<String, dynamic>> items =
       <Map<String, dynamic>>[].asObservable();
 
-  inicializar() async {
+  Future<void> inicializar() async {
     response.clear();
     List? d;
     if (dados != null) {

@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 ///Configurador de sessões
 class Config {
   ///grava usuario no cache
-  static gravarUsuario({
+  static Future<void> gravarUsuario({
     required String email,
     required String senha,
   }) async {
@@ -16,7 +16,7 @@ class Config {
   }
 
 //Exclui usuario do cache
-  static excluirusuario() async {
+  static Future<void> excluirusuario() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setString('usuario', "");
   }
@@ -32,7 +32,7 @@ class Config {
   }
 
   ///gravar o ip e porta da aplicação
-  static gravarConfiguracao({
+  static Future<void> gravarConfiguracao({
     required String ip,
     required String porta,
   }) async {

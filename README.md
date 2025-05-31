@@ -233,7 +233,7 @@ class HomeStore = HomeStoreBase with _$HomeStore;
 abstract class HomeStoreBase extends StoreBase with Store {}
 ```
 
-# Padrão para herança das Pages, repository e Stores (Datatables) 
+# Padrão para herança para Page, repository e Store (Datatable) 
 Para utilizar o datatable é necessario utilizar as sequintes estrutura de herença:
 + **Dados** : Classe de dados para o popular o datatable. Por padrao a classe gera colunas e linhas a partir dos campos "id", e "descricao" do json obtido da api. Para alterar o padrao gerado reescreva os metodos  "processarRow", e o get "colunas". O get card é chamado quando é identificado uma resolução de dispositivos pequenos. Por padrão é gerado um Card com os "id" e "descricao". Reescreva esse metodo caso deseja outras insformações. Ex.
 

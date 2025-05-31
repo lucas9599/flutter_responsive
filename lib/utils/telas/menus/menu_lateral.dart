@@ -1,4 +1,5 @@
 import 'package:flutter_responsive_template/constantes.dart';
+import 'package:flutter_responsive_template/utils/color_utils.dart';
 import 'package:flutter_responsive_template/utils/module_base/app_controller.dart';
 import 'package:flutter_responsive_template/utils/telas/menus/menu_espandido.dart';
 import 'package:flutter/material.dart';
@@ -16,17 +17,6 @@ class MenuEsquerdo extends StatefulWidget {
 }
 
 class _MenuEsquerdoState extends State<MenuEsquerdo> {
-  Color _adjustColorShade(Color color, int amount) {
-    assert(amount >= -255 && amount <= 255);
-
-    int red = color.red + amount;
-    int green = color.green + amount;
-    int blue = color.blue + amount;
-
-    return Color.fromARGB(color.alpha, red.clamp(0, 255), green.clamp(0, 255),
-        blue.clamp(0, 255));
-  }
-
   @override
   Widget build(BuildContext context) {
     final secundary = Theme.of(context).colorScheme.secondary;
@@ -41,7 +31,7 @@ class _MenuEsquerdoState extends State<MenuEsquerdo> {
             color: secundary,
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.7),
+                color: Colors.grey.withValues(alpha: 0.7),
                 spreadRadius: 5,
                 blurRadius: 3,
                 offset: const Offset(1, 1), // changes position of shadow
@@ -193,7 +183,7 @@ class _MenuEsquerdoState extends State<MenuEsquerdo> {
                     ],
                   ),
                   decoration: BoxDecoration(
-                      color: _adjustColorShade(
+                      color: ColorUtils.adjustColorShade(
                     Theme.of(context).colorScheme.secondary,
                     -25,
                   )
@@ -239,7 +229,7 @@ class _MenuEsquerdoState extends State<MenuEsquerdo> {
     );
   }
 
-  _getIniciais(String nome) {
+  String _getIniciais(String nome) {
     List<String> n = nome.split(" ");
     if (n.length > 2) {
       return "${n.first[0]}${n.last[0]}";
