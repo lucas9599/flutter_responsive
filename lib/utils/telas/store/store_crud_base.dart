@@ -40,12 +40,13 @@ abstract class _StoreCrudBaseBase extends Conexao with Store {
     inicializar();
   }
 
+  Future posInicializar() async {}
+
   Future<void> inicializar() async {
     try {
       conexao = StatusConexao.carregando;
       dados.clear();
       dados.addAll(await repository.getID(id!));
-      conexao = StatusConexao.sucesso;
 
       conexao = StatusConexao.sucesso;
     } catch (ex) {

@@ -35,6 +35,11 @@ class InputInline extends StatefulWidget implements IInput {
   }
 
   @override
+  void update(dynamic value) {
+    setValue({name: value});
+  }
+
+  @override
   Map<String, dynamic> getValue() {
     Map<String, dynamic> values = {};
     for (int i = 0; i < inputs.length; i++) {

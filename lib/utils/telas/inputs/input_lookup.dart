@@ -12,15 +12,29 @@ class InputLookup extends StatefulWidget implements IInput {
   final String name;
   late final Input id;
   late final Input descricao;
+
   final String label;
   final bool obrigatorio;
   final bool visivel;
   final List<FiltroBase> filtros = [];
+
   final Map<String, dynamic>? valorinicial;
   final Function(String valor)? function;
   void setFiltro(List<FiltroBase> filtros) {
     this.filtros.clear();
     this.filtros.addAll(filtros);
+  }
+
+  @override
+  void update(dynamic value) async {
+    if (value is! Map) {
+      setValue({
+        name: await telaPesquisa.controller
+            .pesquisarid(valor: [int.parse(value.toString())])
+      });
+    } else {
+      setValue({name: value});
+    }
   }
 
   InputLookup({
@@ -32,11 +46,13 @@ class InputLookup extends StatefulWidget implements IInput {
     this.visivel = true,
     this.valorinicial,
     this.obrigatorio = false,
+    bool editable = true,
   }) : super(key: key) {
     id = Input(
       name: "ID",
       label: "Codigo",
       width: 90,
+      editable: editable,
       onChanged: (valor) async {
         if (valor.isNotEmpty) {
           if (function != null) {

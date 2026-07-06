@@ -14,6 +14,8 @@ class InputArvore extends StatefulWidget implements IInput {
   final String name;
   final InputArvoreController controller = InputArvoreController();
 
+  void update(dynamic value) {}
+
   @override
   State<InputArvore> createState() => _InputArvoreState();
 
@@ -24,7 +26,7 @@ class InputArvore extends StatefulWidget implements IInput {
 
   @override
   void setValue(Map<String, dynamic> values) {
-    controller.add(json.decode(values[name]));
+    controller.add(json.decode(values[name] ?? "{}"));
   }
 
   @override

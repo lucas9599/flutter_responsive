@@ -74,6 +74,11 @@ class InputComboBox extends StatefulWidget implements IInput {
   }
 
   @override
+  void update(dynamic value) {
+    setValue({name: value});
+  }
+
+  @override
   void setValue(Map<String, dynamic> values) {
     controller.valor = composto
         ? ((values[name]?['id'])?.toString())

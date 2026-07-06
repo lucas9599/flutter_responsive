@@ -65,7 +65,7 @@ class _MenuEsquerdoState extends State<MenuEsquerdo> {
                 ),
                 Container(
                   width: 200,
-                  height: 80,
+                  height: infoAdicionais == null ? 80 : 110,
                   // ignore: sort_child_properties_last
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -180,6 +180,11 @@ class _MenuEsquerdoState extends State<MenuEsquerdo> {
                         ),
                       )
                     */
+                      if (infoAdicionais != null)
+                        Visibility(
+                          visible: !Modular.get<IAppController>().esconder,
+                          child: infoAdicionais!(),
+                        )
                     ],
                   ),
                   decoration: BoxDecoration(

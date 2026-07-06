@@ -5,11 +5,13 @@ import 'package:flutter_responsive_template/model/usuario.dart';
 import 'package:flutter_responsive_template/utils/telas/menus/menu_espandido.dart';
 
 String nomesistema = "";
-
+Future<void> Function()? posLogin1;
+Widget Function()? topoEsquerdo1;
 List<MenuExpandido> menus = [];
 Widget? logosecundario;
+Widget Function()? infoAdicionais;
 String ipservidor = "127.0.0.1";
-String portaservidor = "8080";
+String portaservidor = "8090";
 String fundo = "imagens/fundo_login.jpg";
 String logo = "imagens/fundo2.jpg";
 String nomeSistemaDescricao = "";
@@ -17,8 +19,8 @@ String fundoPrincipal = "";
 String imagemheader = "imagens/top-header.png";
 bool mobilePrimary = true;
 
-String urlApi = "http://$ipservidor:$portaservidor";
-String urlApiGeral = "http://$ipservidor:$portaservidor";
+String get urlApi => "http://$ipservidor:$portaservidor";
+String get urlApiGeral => "http://$ipservidor:$portaservidor";
 Usuario? usuarioLogado;
 String rotaatual = "";
 

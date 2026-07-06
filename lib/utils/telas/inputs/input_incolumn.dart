@@ -34,6 +34,11 @@ class InputInColunm extends StatefulWidget implements IInput {
   }
 
   @override
+  void update(dynamic value) {
+    setValue({name: value});
+  }
+
+  @override
   String get value => "";
 
   @override

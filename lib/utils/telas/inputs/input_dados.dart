@@ -17,7 +17,10 @@ class InputDados extends StatefulWidget implements IInput {
     required this.input,
     required this.colunas,
     this.identificador,
-  }) : super(key: key);
+  }) : super(key: key) {
+    controller.input = input;
+    controller.identificador = identificador;
+  }
 
   @override
   final String name;
@@ -34,6 +37,11 @@ class InputDados extends StatefulWidget implements IInput {
   @override
   Map<String, dynamic> getValue() {
     return {name: controller.dados.toList()};
+  }
+
+  @override
+  void update(dynamic value) {
+    setValue({name: value});
   }
 
   @override
@@ -55,9 +63,17 @@ class _InputDadosState extends State<InputDados> {
     List<DataCell> celulas = widget.linhas(dados);
     celulas.add(
       DataCell(
-        IconButton(
-          icon: const Icon(Icons.delete),
-          onPressed: () => widget.controller.dados.removeAt(index),
+        Row(
+          children: [
+            IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: () => widget.controller.remover(index),
+            ),
+            IconButton(
+              icon: const Icon(Icons.edit),
+              onPressed: () => widget.controller.editar(index),
+            ),
+          ],
         ),
       ),
     );
@@ -84,19 +100,7 @@ class _InputDadosState extends State<InputDados> {
             ),
             ElevatedButton.icon(
               onPressed: () {
-                Map<String, dynamic> v = widget.input.getValue();
-                if (v.isNotEmpty) {
-                  if (widget.controller.dados.isNotEmpty) {
-                    if (widget.identificador != null) {
-                      for (int i = 0; i < widget.controller.dados.length; i++) {
-                        if (widget.identificador!(widget.controller.dados[i]) ==
-                            widget.identificador!(v)) {}
-                      }
-                    }
-                  }
-                  widget.controller.dados.add(v);
-                  widget.input.clean();
-                }
+                widget.controller.adicionar();
               },
               label: const Text("Adicionar"),
               icon: const Icon(Icons.add),

@@ -29,6 +29,8 @@ class Usuario extends Dados {
 
   Map<String, dynamic> toJson() {
     return {
+      "id": this.id,
+      "descricao": this.usuario ?? "",
       "usuario": this.usuario ?? "",
       "senha": this.senha ?? "",
       "email": this.email ?? "",

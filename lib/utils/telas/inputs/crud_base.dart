@@ -31,12 +31,16 @@ class CrudBase<CrudStore extends StoreCrudBase> extends StatefulWidget {
   final double width;
   final double height;
   final String title;
+  final StepperType tipoStep;
+  final bool validarStep;
 
   const CrudBase(
       {Key? key,
       required this.title,
       this.tuples,
       this.inputs,
+      this.validarStep = true,
+      this.tipoStep = StepperType.vertical,
       this.height = 400,
       this.width = 400})
       : assert(tuples != null && inputs == null ||
@@ -70,6 +74,8 @@ class _CrudBaseState<CrudStore extends StoreCrudBase> extends State<CrudBase> {
         widget.inputs![i].setValue(this.store.dados);
       }
     }
+
+    store.posInicializar();
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
@@ -86,6 +92,9 @@ class _CrudBaseState<CrudStore extends StoreCrudBase> extends State<CrudBase> {
       widget.tuples![index].inputs[i].setValue(this.store.dados);
       this.store.inputs!.addAll(widget.tuples![index].inputs);
     }
+    if (index + 1 == widget.tuples!.length) {
+      store.posInicializar();
+    }
 
     return EnhanceStep(
         icon: Icon(
@@ -93,10 +102,18 @@ class _CrudBaseState<CrudStore extends StoreCrudBase> extends State<CrudBase> {
           color: Colors.blue,
           size: 20,
         ),
-        state:
-            this.store.index == index ? StepState.editing : StepState.disabled,
+        state: widget.validarStep
+            ? (this.store.index == index
+                ? StepState.editing
+                : StepState.disabled)
+            : (this.store.index == index
+                ? StepState.editing
+                : StepState.indexed),
         isActive: this.store.index == index,
-        title: Text(widget.tuples![index].nome),
+        title: Text(
+          widget.tuples![index].nome,
+          style: TextStyle(color: Colors.black),
+        ),
         content: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,11 +154,15 @@ class _CrudBaseState<CrudStore extends StoreCrudBase> extends State<CrudBase> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(this.store.id! > 0 ? Icons.edit : Icons.add),
-                        Text(
-                          this.store.id! > 0 ? "Modo:Edição" : "Modo:Inclusão",
-                          style: const TextStyle(fontSize: 10),
-                        )
+                        if (this.store.id != null)
+                          Icon(this.store.id! > 0 ? Icons.edit : Icons.add),
+                        if (this.store.id != null)
+                          Text(
+                            this.store.id! > 0
+                                ? "Modo:Edição"
+                                : "Modo:Inclusão",
+                            style: const TextStyle(fontSize: 10),
+                          )
                       ],
                     ),
                     const SizedBox(width: 20),
@@ -188,8 +209,22 @@ class _CrudBaseState<CrudStore extends StoreCrudBase> extends State<CrudBase> {
                                         builder: (context) => widget.tuples !=
                                                 null
                                             ? EnhanceStepper(
+                                                stepIconBuilder:
+                                                    (stepIndex, stepState) {
+                                                  return Icon(
+                                                    widget.tuples![stepIndex]
+                                                        .icon,
+                                                    color: stepState ==
+                                                            StepState.editing
+                                                        ? Colors.blue
+                                                        : Colors.grey,
+                                                    size: 20,
+                                                  );
+                                                },
+
                                                 stepIconSize: 20,
-                                                type: StepperType.horizontal,
+                                                // stepIconBuilder: (stepIndex, stepState) => Icon(Icons.abc, color: Colors.black,),
+                                                type: widget.tipoStep,
                                                 horizontalTitlePosition:
                                                     HorizontalTitlePosition
                                                         .bottom,

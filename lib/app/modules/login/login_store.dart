@@ -135,7 +135,11 @@ abstract class _LoginStoreBase extends Conexao with Store, Mensagens {
           Config.excluirusuario();
         }
         usuarioLogado = u;
+        if (posLogin1 != null) {
+          await posLogin1!();
+        }
         conexao = StatusConexao.sucesso;
+
         Modular.to.navigate("/home/");
       }
       conexao = StatusConexao.sucesso;

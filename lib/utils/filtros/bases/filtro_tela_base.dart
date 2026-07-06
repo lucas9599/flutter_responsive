@@ -32,20 +32,23 @@ class FiltroTelaBase extends StatefulWidget {
       required this.endpoint,
       this.campodescricao = "descricao",
       required this.keyMap,
+      List<FiltroBase>? filtrarDados,
       required FiltroBase filtro,
       this.rotacrud,
       TipoApi tipoApi = TipoApi.normal,
       required bool isLookup})
       : super(key: key) {
     controller.inicializarVariaveis(
-        endpoint: endpoint,
-        campodescricao: campodescricao,
-        filtro: filtro,
-        isLookup: isLookup,
-        tipoApi: tipoApi,
-        rotacrud: rotacrud,
-        dadosfixos: dadosfixos,
-        keyMap: keyMap);
+      endpoint: endpoint,
+      campodescricao: campodescricao,
+      filtro: filtro,
+      isLookup: isLookup,
+      tipoApi: tipoApi,
+      rotacrud: rotacrud,
+      dadosfixos: dadosfixos,
+      filtrarDados: filtrarDados,
+      keyMap: keyMap,
+    );
   }
   final String titulo;
   final String endpoint;

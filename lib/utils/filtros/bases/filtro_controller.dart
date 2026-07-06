@@ -25,6 +25,7 @@ abstract class _FiltroControllerBase extends Conexao with Store {
   late String campodescricao;
   late TipoApi tipoApi;
   List<FiltroBase> filtros = [];
+  List<FiltroBase>? filtrarDados;
   List<Map<String, dynamic>>? dadosfixos;
   _FiltroControllerBase() {
     pesquisa = Input(
@@ -41,12 +42,13 @@ abstract class _FiltroControllerBase extends Conexao with Store {
   void selecionar(int index) {
     if (isLookup) {
       dados[index].controller.selecionado = false;
-      Modular.to.pop({
-        "id": int.parse(
-          dados[index].name,
-        ),
-        "descricao": dados[index].label
-      });
+      Modular.to.pop(dados[index].dados ??
+          {
+            "id": int.parse(
+              dados[index].name,
+            ),
+            "descricao": dados[index].label
+          });
     } else {
       if (dados[index].controller.selecionado) {
         selecionados.removeWhere((element) => element == index);
@@ -66,13 +68,14 @@ abstract class _FiltroControllerBase extends Conexao with Store {
       {required String endpoint,
       required String campodescricao,
       required FiltroBase filtro,
+      List<FiltroBase>? filtrarDados,
       String? rotacrud,
       TipoApi tipoApi = TipoApi.normal,
       bool isLookup = false,
       List<Map<String, dynamic>>? dadosfixos,
       required String keyMap}) {
     this.filtro =
-        Modular.get<StoreBase>(key: "tabela").filtros[keyMap] ?? filtro;
+        Modular.tryGet<StoreBase>(key: "tabela")?.filtros[keyMap] ?? filtro;
     this.isLookup = isLookup;
     this.keyMap = keyMap;
     this.tipoApi = tipoApi;
@@ -80,6 +83,7 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     this.endpoint = endpoint;
     this.dadosfixos = dadosfixos;
     this.rotacrud = rotacrud;
+    this.filtrarDados = filtrarDados;
     if (!this.isLookup) {
       inicializar();
     }
@@ -89,6 +93,9 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     Repository repository =
         Repository(endpoint, campoDescricao: campodescricao, tipoApi: tipoApi);
     List<FiltroBase> f = [FiltroBase(valor: valor, coluna: "id")];
+    if (filtrarDados != null) {
+      f.addAll(filtrarDados!);
+    }
     if (filtros.isNotEmpty) {
       f.addAll(filtros);
     }
@@ -109,17 +116,22 @@ abstract class _FiltroControllerBase extends Conexao with Store {
     List<FiltroBase>? filtros,
   }) async {
     try {
-      filtros = filtros ?? [];
+      List<FiltroBase> aux = [];
+      if (filtros != null) {
+        aux.addAll(filtros);
+      }
+      aux.addAll(filtrarDados ?? []);
       conexao = StatusConexao.carregando;
       Repository repository = Repository(endpoint,
           isLista: true, campoDescricao: campodescricao, tipoApi: tipoApi);
-      List res = dadosfixos ?? await repository.getAll(filtros: filtros);
+      List res = dadosfixos ?? await repository.getAll(filtros: aux);
       dados.clear();
       for (int i = 0; i < res.length; i++) {
         dados.add(InputCheckBox(
           name: res[i]['id'].toString(),
           label: res[i]['descricao'] ?? res[i][campodescricao],
           function: () => selecionar(i),
+          dados: res[i],
         ));
       }
       for (int i = 0; i < dados.length; i++) {

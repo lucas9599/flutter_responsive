@@ -26,6 +26,11 @@ class InputTable extends StatefulWidget implements IInput {
   }
 
   @override
+  void update(dynamic value) {
+    setValue({name: value});
+  }
+
+  @override
   void setValue(Map<String, dynamic> values) {
     if (values[name] != null) {
       List<Map<String, dynamic>> a =

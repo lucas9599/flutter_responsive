@@ -10,6 +10,9 @@ import 'package:data_table_2/data_table_2.dart';
 
 ///Classe para popular os datatables. Faça a herança desta classe.
 abstract class Dados implements DadosMobile {
+  String getDescricao(dados) => dados['descricao'];
+  String get labelDescricao => "Descricao";
+
   int _comparar(dynamic a, dynamic b, crescente) {
     if ((a is num && b is num)) {
       return crescente ? a.compareTo(b) : b.compareTo(a);
@@ -56,7 +59,7 @@ abstract class Dados implements DadosMobile {
         onSort: (columnIndex, ascending) {
           ordernar(index: columnIndex);
         },
-        label: const Text("Descricao"),
+        label: Text(labelDescricao),
       ),
     ];
     final outras = outrascolunas;
@@ -115,7 +118,7 @@ abstract class Dados implements DadosMobile {
       DataCell(getmenus(d: d)),
       DataCell(Text(d['id'].toString())),
       DataCell(
-        Text(d['descricao']),
+        Text(getDescricao(d)),
       ),
     ];
 
@@ -147,8 +150,8 @@ abstract class Dados implements DadosMobile {
             valor: dados![index]['id'].toString(),
           ),
           descricao: LabelValor(
-            label: "Descrição",
-            valor: dados![index]['descricao'].toString(),
+            label: labelDescricao,
+            valor: getDescricao(dados![index]).toString(),
           ),
         ),
       );

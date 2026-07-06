@@ -18,8 +18,14 @@ class FlutterResposive {
       required String fundoLoginPrincipal,
       required String pathImageHeader,
       required bool menuMobilePrimaryColor,
+      Widget Function()? info,
+      Future<void> Function()? posLogin,
+      Widget Function()? topoEsquerdo,
       Widget? logoSecundario}) {
     menus = menusexpandidos;
+    infoAdicionais = info;
+    posLogin1 = posLogin;
+    topoEsquerdo1 = topoEsquerdo;
     nomesistema = descricaosistema;
     logo = pathLogo;
     fundo = fundoLoginLateral;

@@ -78,6 +78,11 @@ class Input extends StatefulWidget implements IInput {
   State<Input> createState() => _InputState();
 
   @override
+  void update(dynamic value) {
+    setValue({name: value});
+  }
+
+  @override
   Map<String, dynamic> getValue() {
     return {
       name: (latext && controller.text.isNotEmpty)
@@ -86,11 +91,13 @@ class Input extends StatefulWidget implements IInput {
               ? inputType == InputType.currency
                   ? double.parse(
                       controller.text.replaceAll(".", "").replaceAll(',', "."))
-                  : inputType == InputType.date
+                  : inputType == InputType.dateTime
                       ? "${controller.text.split('/').reversed.join("-")}T00:00:00.000-03:00"
-                      : obscureText
-                          ? controller.text
-                          : (controller.text.toUpperCase())
+                      : inputType == InputType.date
+                          ? controller.text.split('/').reversed.join("-")
+                          : obscureText
+                              ? controller.text
+                              : (controller.text.toUpperCase())
               : ""
     };
   }

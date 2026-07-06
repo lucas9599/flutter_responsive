@@ -21,7 +21,7 @@ dependencies:
   flutter_modular: ^6.3.2
   shared_preferences: ^2.2.2
   select_form_field: ^2.2.0
-  enhance_stepper: ^1.0.1
+  enhance_stepper: ^1.0.2
   printing: ^5.11.0
   pdf: ^3.10.4
   file_selector: ^1.0.1

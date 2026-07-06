@@ -13,6 +13,7 @@ class InputCheckBox extends StatefulWidget implements IInput {
   final ControllerCheckBox controller = ControllerCheckBox();
   final Color? fillColor;
   final bool? filled;
+  final Map<String, dynamic>? dados;
 
   InputCheckBox({
     Key? key,
@@ -22,6 +23,7 @@ class InputCheckBox extends StatefulWidget implements IInput {
     this.filled,
     this.function,
     this.initialValue = false,
+    this.dados,
   }) : super(key: key) {
     controller.selecionado = initialValue;
   }
@@ -32,6 +34,10 @@ class InputCheckBox extends StatefulWidget implements IInput {
   @override
   Map<String, dynamic> getValue() {
     return {name: controller.selecionado};
+  }
+
+  void update(dynamic value) {
+    this.setValue({name: value});
   }
 
   @override
